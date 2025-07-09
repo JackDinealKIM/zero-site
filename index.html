@@ -1,157 +1,262 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=375, initial-scale=1.0">
   <title>이름없는 제로인</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
+    body {
+      font-family: 'Pretendard Variable', sans-serif;
+    }
+
+    .why-zeroin-title {
+      font-family: 'GongGothicBold', sans-serif;
+      font-weight: 900;
+      -webkit-text-stroke: 0.5px;
+    }
+
+    @font-face {
+      font-family: 'GongGothicBold';
+      src: url('https://cdn.jsdelivr.net/gh/fontbee/font@main/Gonggames/GongGothicBold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .orange-bold {
+      color: #FF6B0B;
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s, transform 0.8s;
     }
+
     .fade-in.active {
       opacity: 1;
       transform: translateY(0);
     }
+
+    .blue-bold {
+      color: #2926B3;
+    }
   </style>
 </head>
+
 <body class="bg-white text-gray-900">
+  <!-- 헤더: 로고 + 텍스트 + 창업문의 버튼 -->
+  <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-4 px-4">
+    <div class="flex items-center">
+      <!-- 로고 (원형 + 포인트 점) -->
+      <div class="relative w-12 h-12 flex items-center justify-center mr-3">
+        <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center">
+          <div class="w-5 h-5 bg-white rounded-full"></div>
+        </div>
+        <div class="absolute bottom-1 right-1 w-5 h-5 bg-orange-500 rounded-full border-4 border-white"></div>
+      </div>
+      <span class="text-3xl font-extrabold text-gray-900">제로스토어</span>
+    </div>
+    <a href="#contact"
+      class="text-white font-extrabold text-2xl px-12 py-4 rounded-2xl shadow-lg transition text-center"
+      style="background-color:#FF5500;">창업문의</a>
+  </header>
+
   <!-- 상단 배너 (Figma 선택 영역 반영) -->
-  <section class="relative w-full h-[465px] bg-gray-100 flex flex-col items-center justify-center">
-    <div class="flex flex-col items-center justify-center w-full h-full">
-      <h1 class="text-4xl font-bold text-blue-800 text-center fade-in leading-tight">
-        칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
-      </h1>
-      <p class="mt-4 text-lg font-semibold text-gray-900 text-center fade-in">가볍게! 맛있게! 제로하게!</p>
-      <p class="mt-2 text-base font-semibold text-gray-900 text-center fade-in">현대인에게 가장 HOT한 제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!</p>
+  <section class="relative w-full min-h-[120vh] flex items-center justify-center"
+    style="background: url('images/why-zero-bg.jpg') center/cover no-repeat;">
+    <div class="absolute inset-0 bg-black" style="opacity:0.7;"></div>
+    <div class="relative w-full h-full z-10 grid grid-cols-2 grid-rows-2 gap-4 p-8">
+      <div class="flex items-center justify-center">
+        <h1 class="text-4xl font-bold text-blue-800 text-center fade-in leading-tight why-zeroin-title">
+          칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
+        </h1>
+      </div>
+      <div class="flex items-center justify-center">
+        <p class="text-lg font-semibold text-white text-center fade-in">가볍게! 맛있게! 제로하게!</p>
+      </div>
+      <div class="flex items-center justify-center">
+        <p class="text-lg font-semibold text-white text-center fade-in">현대인에게 가장 HOT한 제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
+        </p>
+      </div>
+      <div class="flex items-center justify-center">
+        <!-- 필요시 추가 콘텐츠 또는 비워둠 -->
+      </div>
     </div>
   </section>
 
   <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
   <nav class="w-full bg-gray-900 py-3 fade-in sticky top-0 z-50 shadow" id="main-nav">
-    <ul class="flex justify-center space-x-8">
-      <li class="text-white font-semibold">Why ZEROIN</li>
-      <li class="text-gray-400">특장점</li>
-      <li class="text-gray-400">제품라인</li>
-      <li class="text-gray-400">창업비용</li>
-    </ul>
-    <div class="mx-auto mt-2 w-16 h-1 bg-white rounded"></div>
+    <div class="relative max-w-xl mx-auto">
+      <ul class="flex justify-center space-x-8 relative" id="nav-list">
+        <li id="nav-why" class="text-white font-semibold cursor-pointer">Why ZEROIN</li>
+        <li id="nav-feature" class="text-gray-400 cursor-pointer">특장점</li>
+        <li id="nav-product" class="text-gray-400 cursor-pointer">제품라인</li>
+        <li id="nav-cost" class="text-gray-400 cursor-pointer">창업비용</li>
+      </ul>
+      <div id="nav-bar" class="absolute bottom-0 h-1 bg-white rounded transition-all duration-300"
+        style="left:0;width:64px;"></div>
+    </div>
   </nav>
-  <div class="h-[60px]"></div> <!-- 네비게이션 높이만큼 여백 추가 -->
 
   <!-- 주요 섹션 예시 (특장점) -->
-  <section class="w-full" style="background-color:#FF6B0B;">
+  <section id="feature" class="w-full" style="background-color:#FF6B0B;">
     <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-bold text-white mb-4">24시간 무인가게의 수많은 시행착오를 바탕으로<br>만들어낸 실패없는 NEW 브랜드 [이름없는 제로인]</h2>
-      <p class="text-lg text-white">제 2의 브랜드 [이름없는 제로인]<br>24시 무인 [이름없는 과일가게]에 이어서</p>
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=170&q=80" alt="브랜드 이미지" class="mx-auto mt-6 rounded-lg shadow-lg w-40 h-20 object-cover">
+      <h2 class="text-xl text-white mb-4">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸 실패없는 <span class="font-bold blue-bold">NEW 브랜드</span><br><span class="font-bold blue-bold">[이름없는 제로인]</span>을 런칭 했습니다.</h2>
+      <div class="flex justify-center mt-16 mb-16">
+        <svg width="1" height="70" viewBox="0 0 1 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0.5" y1="-2.18557e-08" x2="0.500003" y2="70" stroke="#2926B3" />
+        </svg>
+      </div>
+
+      <p class="text-lg text-white">24시 무인 [이름없는 과일가게]에 이어서</p>
+      <p class="text-lg text-white font-bold text-2xl">제 2의 브랜드</p>
+      <p class="text-lg text-white font-bold text-3xl blue-bold">[이름없는 제로인]</p>
+      <img src="./images/why-zero-logo.png" alt="브랜드 이미지"
+        class="mx-auto mt-6 rounded-lg shadow-lg w-40 h-20 object-cover">
     </div>
   </section>
 
   <!-- WHY ZEROIN? -->
-  <section class="w-full bg-gray-800 py-12 fade-in">
+  <section id="why" class="w-full bg-gray-800 py-12 fade-in">
     <div class="max-w-md mx-auto text-center">
       <h2 class="text-2xl font-extrabold text-white mb-4">WHY ZEROIN?<br>왜 이름없는 제로인을 선택할까요?</h2>
       <div class="grid grid-cols-1 gap-6">
         <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="text-orange-500 font-bold">Point 1</span>
-          <h3 class="text-lg font-bold mt-2">아무 상품만 진열하지 않아요</h3>
+          <span class="font-bold orange-bold">Point 1</span>
+          <h3 class="text-lg font-bold mt-2"><span class="font-bold orange-bold">아무 상품</span>만 진열하지 않아요</h3>
           <p class="text-gray-600">순환되는 확실한 상품만 상권에 맞춰 진열</p>
         </div>
         <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="text-orange-500 font-bold">Point 2</span>
-          <h3 class="text-lg font-bold mt-2">24시 무인 노하우와 특허까지</h3>
+          <span class="font-bold orange-bold">Point 2</span>
+          <h3 class="text-lg font-bold mt-2">24시 무인 노하우와 <span class="font-bold orange-bold">특허까지</span></h3>
           <p class="text-gray-600">수많은 시행착오를 통한 편리한 원터치 주문시스템</p>
         </div>
         <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="text-orange-500 font-bold">Point 3</span>
-          <h3 class="text-lg font-bold mt-2">탄탄함을 증명하는 재무제표</h3>
+          <span class="font-bold orange-bold">Point 3</span>
+          <h3 class="text-lg font-bold mt-2">탄탄함을 증명하는 <span class="font-bold orange-bold">재무제표</span></h3>
           <p class="text-gray-600">꾸준히 지속적으로 성장하고 있는 것을 지표로 증명</p>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold">Point 4</span>
+          <h3 class="text-lg font-bold mt-2">제로 상품 외 <span class="font-bold orange-bold">과일, 샐러드 판매 가능</span></h3>
+          <p class="text-gray-600">제로 상품뿐만 아니라 MZ들이 선호하는 요즘 인기 과일, 야채샐러드, 컵과일 판매 가능</p>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold">Point 5</span>
+          <h3 class="text-lg font-bold mt-2"><span class="font-bold orange-bold">전국 통합 포인트 </span> 서비스</h3>
+          <p class="text-gray-600">전국 어디든 제로인이라면 포인트 적립 및 결제 가능</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Figma 선택 디자인(하단 WHY ZEROIN 장점 카드) -->
-  <section class="w-full" style="background-color:#FF6B0B;">
+  <section id="feature" class="w-full" style="background-color:#FF6B0B;">
     <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-white mb-8">꼭 이름없는 제로인으로<br>시작해야만 하는 이유</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 class="text-2xl font-extrabold text-white mb-8">꼭 <span class="font-bold blue-bold">이름없는 제로인</span>으로<br>시작해야만 하는 이유</h2>
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
         <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_1.png" alt="배송비 부담 제로" class="object-cover mb-5 mt-5 w-20 h-20" />  
           <span class="text-lg font-extrabold text-gray-900 mb-2">배송비 부담 제로!</span>
           <p class="text-xs text-gray-700 mb-2">배송비에 대한 부담을 줄여<br>최대한 수익만을 고려</p>
         </div>
         <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_2.png" alt="비수기 제로" class="object-cover mb-5 mt-5 w-20 h-20" />  
           <span class="text-lg font-extrabold text-gray-900 mb-2">비수기 제로!</span>
           <p class="text-xs text-gray-700 mb-2">계절성이 없고 늘 인기 있는<br>제품으로만 구성</p>
         </div>
         <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_3.png" alt="빠른 수익전환" class="object-cover mb-5 mt-5 w-20 h-20" />  
           <span class="text-lg font-extrabold text-gray-900 mb-2">빠른 수익전환</span>
           <p class="text-xs text-gray-700 mb-2">소비자들의 트렌드에 맞춰<br>적은 투자비용으로 빠른 수익</p>
         </div>
         <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_4.png" alt="누구나 손쉽게 운영" class="object-cover mb-5 mt-5 w-20 h-20" />  
           <span class="text-lg font-extrabold text-gray-900 mb-2">누구나 손쉽게 운영</span>
           <p class="text-xs text-gray-700 mb-2">주문 방식이 정말 쉽고<br>편하여 누구나 운영 가능</p>
         </div>
         <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_5.png" alt="시간 대비 최대 수익" class="object-cover mb-5 mt-5 w-20 h-20" />  
           <span class="text-lg font-extrabold text-gray-900 mb-2">시간 대비 최대 수익</span>
           <p class="text-xs text-gray-700 mb-2">하루 최대 2시간으로<br>본업 이상의 수익 창출 가능</p>
         </div>
         <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_6.png" alt="쉬운 주문 시스템" class="object-cover mb-5 mt-5 w-20 h-20" />  
           <span class="text-lg font-extrabold text-gray-900 mb-2">쉬운 주문 시스템</span>
           <p class="text-xs text-gray-700 mb-2">어디서든 핸드폰만 있으면<br>입고, 재고, 주문 모두 가능</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_7.png" alt="통합 포인트 서비스" class="object-cover mb-5 mt-5 w-20 h-20" />  
+          <span class="text-lg font-extrabold text-gray-900 mb-2">통합 포인트 서비스</span>
+          <p class="text-xs text-gray-700 mb-2">고객 유치를 위한 본사 지원, <br>전국 매장 통합 포인트 서비스</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
+          <img src="./images/start_8.png" alt="다점포 관리 가능" class="object-cover mb-5 mt-5 w-20 h-20" />  
+          <span class="text-lg font-extrabold text-gray-900 mb-2">다점포 관리 가능</span>
+          <p class="text-xs text-gray-700 mb-2">관리가 쉬운 24시 무인가게로<br>다점포 관리도 편하게 가능</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Figma 선택 디자인(제로 시장 성장, 연령별 구매량 등) -->
-  <section class="w-full" style="background-color:#FFECDF;">
+  <section class="w-full">
     <div class="max-w-md mx-auto text-center py-12">
       <h2 class="text-2xl font-extrabold text-gray-800 mb-4">계속 성장하는 제로 시장,<br>전년 대비 3배 증가!</h2>
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=346&q=80" alt="제로 시장 성장 그래프" class="mx-auto my-6 rounded-lg shadow-lg w-full max-w-xs h-44 object-cover">
+      <img src="./images/graph.png"
+        alt="제로 시장 성장 그래프" class="mx-auto my-6 rounded-lg shadow-lg w-full h-50">
       <div class="mt-8 mb-2 text-sm text-black font-medium">&lt;최근 1년간 나이대별 제로상품 구매량 추이&gt;</div>
-      <div class="flex flex-wrap justify-center gap-4 mt-4">
-        <div class="bg-white rounded-lg shadow p-2 w-32 h-40 flex flex-col items-center justify-center">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=132&q=80" alt="연령별1" class="rounded mb-2 w-28 h-28 object-cover">
-        </div>
-        <div class="bg-white rounded-lg shadow p-2 w-32 h-40 flex flex-col items-center justify-center">
-          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=132&q=80" alt="연령별2" class="rounded mb-2 w-28 h-28 object-cover">
-        </div>
-        <div class="bg-white rounded-lg shadow p-2 w-32 h-40 flex flex-col items-center justify-center">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=132&q=80" alt="연령별3" class="rounded mb-2 w-28 h-28 object-cover">
+      <h2 class="text-2xl font-extrabold text-gray-800 mb-8 mt-36">이미 준비된 이름없는 제로인과<br>함께 성장해보세요!</h2>
+      <div class="flex flex-wrap justify-center mt-4">
+        <div class="bg-white rounded-lg shadow p-9 flex flex-col items-center justify-center" style="background-color: #FFECDF;">
+          <img src="./images/certification.png"
+            alt="인증서" class="rounded mb-2 w-128 h-128 object-cover">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Figma 선택 디자인(제품 라인업, 원형 이미지 카드 등) -->
-  <section class="w-full" style="background-color:#333333;">
+  <section id="product" class="w-full" style="background-color:#333333;">
     <div class="max-w-md mx-auto text-center py-12">
       <h2 class="text-2xl font-extrabold text-white mb-2">이름없는 제로인만의 <br>차별화한 제품라인</h2>
       <p class="text-base font-semibold text-white mb-8">제로, 저칼로리, 저당, 무가당,<br>기능성 식품위주 제품으로 구성 </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <div class="bg-white bg-opacity-10 rounded-full w-32 h-32 flex items-center justify-center shadow">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=126&q=80" alt="제품1" class="rounded-full w-28 h-28 object-cover">
+      <div class="grid grid-cols-2 gap-4 mt-12">
+        <div class="flex items-center justify-center">
+          <img src="./images/line_1.jpg"
+            alt="바나나" class="rounded-full w-36 h-36 object-cover">
         </div>
-        <div class="bg-white bg-opacity-10 rounded-full w-32 h-32 flex items-center justify-center shadow">
-          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=126&q=80" alt="제품2" class="rounded-full w-28 h-28 object-cover">
+        <div class="flex items-center justify-center">
+          <img src="./images/line_2.jpg"
+            alt="채소" class="rounded-full w-36 h-36 object-cover">
         </div>
-        <div class="bg-white bg-opacity-10 rounded-full w-32 h-32 flex items-center justify-center shadow">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=126&q=80" alt="제품3" class="rounded-full w-28 h-28 object-cover">
+        <div class="flex items-center justify-center mt-12 mb-12">
+          <img src="./images/line_3.jpg"
+            alt="디저트" class="rounded-full w-36 h-36 object-cover">
         </div>
-        <div class="bg-white bg-opacity-10 rounded-full w-32 h-32 flex items-center justify-center shadow">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=126&q=80" alt="제품4" class="rounded-full w-28 h-28 object-cover">
+        <div class="flex items-center justify-center mt-12 mb-12">
+          <img src="./images/line_4.jpg"
+            alt="우유" class="rounded-full w-36 h-36 object-cover">
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="./images/line_5.jpg"
+            alt="빵" class="rounded-full w-36 h-36 object-cover">
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="./images/line_6.jpg"
+            alt="아이스크림" class="rounded-full w-36 h-36 object-cover">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Figma 선택 디자인(창업비용 표, 신규 가맹 혜택) -->
-  <section class="w-full" style="background-color:#fff;">
+  <section id="cost" class="w-full" style="background-color:#fff;">
     <div class="max-w-md mx-auto text-center py-12">
       <h2 class="text-2xl font-extrabold text-orange-600 mb-2">투자는 적게! 수익은 많게!<br>이름없는 제로인 창업비용</h2>
       <div class="overflow-x-auto mt-8 mb-8">
@@ -164,23 +269,76 @@
             </tr>
           </thead>
           <tbody class="bg-orange-50 text-gray-800">
-            <tr><td class="border px-2 py-1">가맹비</td><td class="border px-2 py-1">400만원</td><td class="border px-2 py-1">30호점 이후 700만원<br>계약 종료 시 반환</td></tr>
-            <tr><td class="border px-2 py-1">물류보증금 / 이행보증금</td><td class="border px-2 py-1">500만원(선택사항)</td><td class="border px-2 py-1">카톡 오픈채팅방을 통한 교육 진행</td></tr>
-            <tr><td class="border px-2 py-1">교육비</td><td class="border px-2 py-1">100만원</td><td class="border px-2 py-1">가구 포함 / 기본 인테리어 기준</td></tr>
-            <tr><td class="border px-2 py-1">인테리어</td><td class="border px-2 py-1">180만원~</td><td class="border px-2 py-1">프리미엄 / 기본 플렉스 가격 상이</td></tr>
-            <tr><td class="border px-2 py-1">간판</td><td class="border px-2 py-1">270만원</td><td class="border px-2 py-1">디자인 도면, 인테리어 시안 제공</td></tr>
-            <tr><td class="border px-2 py-1">감리비/인테리어 컨셉</td><td class="border px-2 py-1">350만원</td><td class="border px-2 py-1">오픈 이벤트, 현수막, 디자인 문구</td></tr>
-            <tr><td class="border px-2 py-1">홍보비</td><td class="border px-2 py-1">550만원</td><td class="border px-2 py-1">공산품, 과일 및 야채 (선택사항)</td></tr>
-            <tr><td class="border px-2 py-1">초도비용</td><td class="border px-2 py-1">1만원</td><td class="border px-2 py-1">길이나 상황에 따라 변동 가능</td></tr>
-            <tr><td class="border px-2 py-1">키오스크</td><td class="border px-2 py-1">100만원</td><td class="border px-2 py-1">10호점 오픈 시 3개월 로열티 면제</td></tr>
-            <tr><td class="border px-2 py-1">에어컨</td><td class="border px-2 py-1">300만원(선택사항)</td><td class="border px-2 py-1">본사 부담 / 전국 포인트 통합 시스템</td></tr>
-            <tr><td class="border px-2 py-1">시설비</td><td class="border px-2 py-1">1000만원~</td><td class="border px-2 py-1">재고관리, 재고주문, 금액할인변경, 이벤트홍보, 회원가입 및 적립<br>키오스크 포인트 만원 구매시 0.01%</td></tr>
-            <tr><td class="border px-2 py-1">로열티</td><td class="border px-2 py-1">2%</td><td class="border px-2 py-1">합계: 4250만원 (VAT 별도, 선택사항 미포함)</td></tr>
-            <tr><td class="border px-2 py-1">주문 프로그램비</td><td class="border px-2 py-1">100만원</td><td class="border px-2 py-1">-</td></tr>
+            <tr>
+              <td class="border px-2 py-1">가맹비</td>
+              <td class="border px-2 py-1">400만원</td>
+              <td class="border px-2 py-1">30호점 이후 700만원<br>계약 종료 시 반환</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">물류보증금 / 이행보증금</td>
+              <td class="border px-2 py-1">500만원(선택사항)</td>
+              <td class="border px-2 py-1">카톡 오픈채팅방을 통한 교육 진행</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">교육비</td>
+              <td class="border px-2 py-1">100만원</td>
+              <td class="border px-2 py-1">가구 포함 / 기본 인테리어 기준</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">인테리어</td>
+              <td class="border px-2 py-1">180만원~</td>
+              <td class="border px-2 py-1">프리미엄 / 기본 플렉스 가격 상이</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">간판</td>
+              <td class="border px-2 py-1">270만원</td>
+              <td class="border px-2 py-1">디자인 도면, 인테리어 시안 제공</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">감리비/인테리어 컨셉</td>
+              <td class="border px-2 py-1">350만원</td>
+              <td class="border px-2 py-1">오픈 이벤트, 현수막, 디자인 문구</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">홍보비</td>
+              <td class="border px-2 py-1">550만원</td>
+              <td class="border px-2 py-1">공산품, 과일 및 야채 (선택사항)</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">초도비용</td>
+              <td class="border px-2 py-1">1만원</td>
+              <td class="border px-2 py-1">길이나 상황에 따라 변동 가능</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">키오스크</td>
+              <td class="border px-2 py-1">100만원</td>
+              <td class="border px-2 py-1">10호점 오픈 시 3개월 로열티 면제</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">에어컨</td>
+              <td class="border px-2 py-1">300만원(선택사항)</td>
+              <td class="border px-2 py-1">본사 부담 / 전국 포인트 통합 시스템</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">시설비</td>
+              <td class="border px-2 py-1">1000만원~</td>
+              <td class="border px-2 py-1">재고관리, 재고주문, 금액할인변경, 이벤트홍보, 회원가입 및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">로열티</td>
+              <td class="border px-2 py-1">2%</td>
+              <td class="border px-2 py-1">합계: 4250만원 (VAT 별도, 선택사항 미포함)</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-1">주문 프로그램비</td>
+              <td class="border px-2 py-1">100만원</td>
+              <td class="border px-2 py-1">-</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <div class="flex flex-col items-center justify-center bg-orange-50 border-2 border-orange-400 rounded-2xl p-6 mt-8 max-w-sm mx-auto">
+      <div
+        class="flex flex-col items-center justify-center bg-orange-50 border-2 border-orange-400 rounded-2xl p-6 mt-8 max-w-sm mx-auto">
         <div class="flex items-center mb-4">
           <img src="https://cdn-icons-png.flaticon.com/512/2282/2282531.png" alt="혜택 아이콘" class="w-12 h-12 mr-3">
           <span class="text-lg font-bold text-orange-600">신규 가맹 혜택</span>
@@ -265,37 +423,45 @@
   </section>
 
   <!-- Figma 선택 디자인(상담 신청 폼) -->
-  <section class="w-full" style="background-color:#f8f8f8;">
+  <section id="contact" class="w-full" style="background-color:#f8f8f8;">
     <div class="max-w-md mx-auto text-center py-12">
       <h2 class="text-2xl font-extrabold text-gray-800 mb-6">자세한 내용을 듣고 싶으시다면?<br>지금 바로 상담받아보세요!</h2>
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=144&q=80" alt="상담 이미지" class="mx-auto my-6 rounded-lg shadow-lg w-36 h-36 object-cover">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=144&q=80"
+        alt="상담 이미지" class="mx-auto my-6 rounded-lg shadow-lg w-36 h-36 object-cover">
       <form class="space-y-4 mt-8">
         <div class="text-left">
           <label class="block text-gray-700 font-medium mb-1">성함<span class="text-red-500">*</span></label>
-          <input type="text" name="name" required placeholder="성함 입력" class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+          <input type="text" name="name" required placeholder="성함 입력"
+            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
         </div>
         <div class="text-left">
           <label class="block text-gray-700 font-medium mb-1">연락처<span class="text-red-500">*</span></label>
-          <input type="text" name="phone" required placeholder="숫자만(-제외)" class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+          <input type="text" name="phone" required placeholder="숫자만(-제외)"
+            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
         </div>
         <div class="text-left">
           <label class="block text-gray-700 font-medium mb-1">이메일<span class="text-red-500">*</span></label>
-          <input type="email" name="email" required placeholder="이메일 주소 입력" class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+          <input type="email" name="email" required placeholder="이메일 주소 입력"
+            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
         </div>
         <div class="text-left">
           <label class="block text-gray-700 font-medium mb-1">가맹 희망 지역<span class="text-red-500">*</span></label>
-          <input type="text" name="region" required placeholder="희망 지역 입력 [예) 서울시 마포구]" class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+          <input type="text" name="region" required placeholder="희망 지역 입력 [예) 서울시 마포구]"
+            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
         </div>
         <div class="text-left">
           <label class="block text-gray-700 font-medium mb-1">알게된 경로</label>
-          <input type="text" name="source" placeholder="알게된 경로 입력" class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+          <input type="text" name="source" placeholder="알게된 경로 입력"
+            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
         </div>
         <div class="flex items-center mt-2">
           <input type="checkbox" id="agree" required class="mr-2 w-5 h-5 border-gray-400 rounded">
           <label for="agree" class="text-gray-700 text-sm">(필수) 개인정보 수집 이용 동의</label>
         </div>
         <div class="text-right text-xs text-red-500">*필수 입력</div>
-        <button type="submit" class="w-full bg-gray-800 text-white font-bold py-3 rounded-lg mt-4 hover:bg-gray-900 transition">상담 신청하기</button>
+        <button type="submit"
+          class="w-full bg-gray-800 text-white font-bold py-3 rounded-lg mt-4 hover:bg-gray-900 transition">상담
+          신청하기</button>
       </form>
     </div>
   </section>
@@ -303,7 +469,7 @@
   <!-- 스크롤 애니메이션 스크립트 -->
   <script>
     function fadeInOnScroll() {
-      $('.fade-in').each(function() {
+      $('.fade-in').each(function () {
         var elemTop = $(this).offset().top;
         var winBottom = $(window).scrollTop() + $(window).height();
         if (elemTop < winBottom - 50) {
@@ -311,10 +477,61 @@
         }
       });
     }
-    $(document).ready(function() {
+    $(document).ready(function () {
       fadeInOnScroll();
       $(window).on('scroll', fadeInOnScroll);
+      // 부드러운 스크롤
+      $('a[href^="#contact"]').on('click', function (e) {
+        var target = $('#contact');
+        if (target.length) {
+          e.preventDefault();
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 600);
+        }
+      });
+
+      // 네비게이션 바 이동
+      var sectionIds = ['why', 'feature', 'product', 'cost'];
+      var navIds = ['#nav-why', '#nav-feature', '#nav-product', '#nav-cost'];
+      var $navBar = $('#nav-bar');
+      var $navList = $('#nav-list');
+      function moveBarTo(idx) {
+        var $li = $(navIds[idx]);
+        var left = $li.position().left + $navList.position().left;
+        var width = $li.outerWidth();
+        $navBar.css({ left: left + 'px', width: width + 'px' });
+        $(navIds.join(',')).removeClass('text-white font-semibold').addClass('text-gray-400');
+        $li.removeClass('text-gray-400').addClass('text-white font-semibold');
+      }
+      function getCurrentSection() {
+        var scroll = $(window).scrollTop();
+        var winH = $(window).height();
+        var idx = 0;
+        for (var i = 0; i < sectionIds.length; i++) {
+          var top = $('#' + sectionIds[i]).offset().top - 80;
+          if (scroll >= top) idx = i;
+        }
+        return idx;
+      }
+      // 초기 위치
+      moveBarTo(0);
+      // 스크롤 시 위치 변경
+      $(window).on('scroll', function () {
+        var idx = getCurrentSection();
+        moveBarTo(idx);
+      });
+      // 메뉴 클릭 시 해당 섹션으로 이동
+      navIds.forEach(function (sel, idx) {
+        $(sel).on('click', function () {
+          var target = $('#' + sectionIds[idx]);
+          if (target.length) {
+            $('html, body').animate({ scrollTop: target.offset().top - 60 }, 600);
+          }
+        });
+      });
     });
   </script>
 </body>
-</html> 
+
+</html>
