@@ -33,6 +33,107 @@
       color: #FF6B0B;
     }
 
+    /* 반응형 텍스트 크기 클래스 */
+    .text-responsive-xs {
+      font-size: 0.75rem; /* 12px */
+    }
+    .text-responsive-sm {
+      font-size: 0.875rem; /* 14px */
+    }
+    .text-responsive-base {
+      font-size: 1rem; /* 16px */
+    }
+    .text-responsive-lg {
+      font-size: 1.125rem; /* 18px */
+    }
+    .text-responsive-xl {
+      font-size: 1.25rem; /* 20px */
+    }
+    .text-responsive-2xl {
+      font-size: 1.5rem; /* 24px */
+    }
+    .text-responsive-3xl {
+      font-size: 1.875rem; /* 30px */
+    }
+    .text-responsive-4xl {
+      font-size: 2.25rem; /* 36px */
+    }
+    .text-responsive-5xl {
+      font-size: 3rem; /* 48px */
+    }
+
+    /* 태블릿 크기 */
+    @media (min-width: 768px) {
+      .text-responsive-xs { font-size: 0.875rem; }
+      .text-responsive-sm { font-size: 1rem; }
+      .text-responsive-base { font-size: 1.125rem; }
+      .text-responsive-lg { font-size: 1.25rem; }
+      .text-responsive-xl { font-size: 1.5rem; }
+      .text-responsive-2xl { font-size: 1.875rem; }
+      .text-responsive-3xl { font-size: 2.25rem; }
+      .text-responsive-4xl { font-size: 2.5rem; }
+      .text-responsive-5xl { font-size: 3.5rem; }
+    }
+
+    /* 데스크탑 크기 */
+    @media (min-width: 1024px) {
+      .text-responsive-xs { font-size: 1rem; }
+      .text-responsive-sm { font-size: 1.125rem; }
+      .text-responsive-base { font-size: 1.25rem; }
+      .text-responsive-lg { font-size: 1.5rem; }
+      .text-responsive-xl { font-size: 1.75rem; }
+      .text-responsive-2xl { font-size: 2.25rem; }
+      .text-responsive-3xl { font-size: 2.75rem; }
+      .text-responsive-4xl { font-size: 3.25rem; }
+      .text-responsive-5xl { font-size: 4rem; }
+    }
+
+    /* 반응형 이미지 크기 클래스 */
+    .img-responsive-sm {
+      width: 2rem; /* 32px */
+      height: 2rem;
+    }
+    .img-responsive-md {
+      width: 3rem; /* 48px */
+      height: 3rem;
+    }
+    .img-responsive-lg {
+      width: 4rem; /* 64px */
+      height: 4rem;
+    }
+    .img-responsive-xl {
+      width: 5rem; /* 80px */
+      height: 5rem;
+    }
+    .img-responsive-2xl {
+      width: 6rem; /* 96px */
+      height: 6rem;
+    }
+    .img-responsive-3xl {
+      width: 8rem; /* 128px */
+      height: 8rem;
+    }
+
+    /* 태블릿 크기 */
+    @media (min-width: 768px) {
+      .img-responsive-sm { width: 2.5rem; height: 2.5rem; }
+      .img-responsive-md { width: 4rem; height: 4rem; }
+      .img-responsive-lg { width: 5rem; height: 5rem; }
+      .img-responsive-xl { width: 6rem; height: 6rem; }
+      .img-responsive-2xl { width: 7rem; height: 7rem; }
+      .img-responsive-3xl { width: 9rem; height: 9rem; }
+    }
+
+    /* 데스크탑 크기 */
+    @media (min-width: 1024px) {
+      .img-responsive-sm { width: 3rem; height: 3rem; }
+      .img-responsive-md { width: 4.5rem; height: 4.5rem; }
+      .img-responsive-lg { width: 6rem; height: 6rem; }
+      .img-responsive-xl { width: 7rem; height: 7rem; }
+      .img-responsive-2xl { width: 8rem; height: 8rem; }
+      .img-responsive-3xl { width: 10rem; height: 10rem; }
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(40px);
@@ -126,37 +227,37 @@
 
 <body class="bg-white text-gray-900">
   <!-- 헤더: 로고 + 텍스트 + 창업문의 버튼 -->
-  <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-4 px-4">
+  <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-2 md:py-4 px-4">
     <div class="flex items-center">
       <!-- 로고 (원형 + 포인트 점) -->
-      <div class="relative w-12 h-12 flex items-center justify-center mr-3">
-        <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center">
-          <div class="w-5 h-5 bg-white rounded-full"></div>
+      <div class="relative w-8 h-8 md:w-12 md:h-12 flex items-center justify-center mr-2 md:mr-3">
+        <div class="w-8 h-8 md:w-12 md:h-12 bg-gray-900 rounded-full flex items-center justify-center">
+          <div class="w-3 h-3 md:w-5 md:h-5 bg-white rounded-full"></div>
         </div>
-        <div class="absolute bottom-1 right-1 w-5 h-5 bg-orange-500 rounded-full border-4 border-white"></div>
+        <div class="absolute bottom-0.5 right-0.5 md:bottom-1 md:right-1 w-3 h-3 md:w-5 md:h-5 bg-orange-500 rounded-full border-2 md:border-4 border-white"></div>
       </div>
-      <span class="text-3xl font-extrabold text-gray-900">제로스토어</span>
+      <span class="text-responsive-2xl md:text-responsive-3xl font-extrabold text-gray-900">제로스토어</span>
     </div>
     <a href="#contact"
-      class="text-white font-extrabold text-2xl px-12 py-4 rounded-2xl shadow-lg transition text-center"
+      class="text-white font-extrabold text-responsive-sm md:text-responsive-xl px-4 py-2 md:px-8 md:py-3 rounded-xl md:rounded-2xl shadow-lg transition text-center"
       style="background-color:#FF5500;">창업문의</a>
   </header>
 
   <!-- 상단 배너 (Figma 선택 영역 반영) -->
-  <section class="relative w-full min-h-[120vh] flex items-center justify-center"
+  <section class="relative w-full min-h-[80vh] md:min-h-[120vh] flex items-center justify-center"
     style="background: url('images/why-zero-bg.jpg') center/cover no-repeat;">
     <div class="absolute inset-0 bg-black" style="opacity:0.7;"></div>
-    <div class="relative w-full h-full z-10 p-40">
-      <div class="flex items-center justify-center pb-10">
-        <h1 class="text-4xl font-bold text-blue-800 text-center fade-in leading-tight why-zeroin-title pulse-text">
+    <div class="relative w-full h-full z-10 p-8 md:p-20 lg:p-40">
+      <div class="flex items-center justify-center pb-6 md:pb-10">
+        <h1 class="text-responsive-3xl md:text-responsive-4xl lg:text-responsive-5xl font-bold text-blue-800 text-center fade-in leading-tight why-zeroin-title pulse-text">
           칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
         </h1>
       </div>
-      <div class="flex items-center justify-center">
-        <p class="text-lg font-semibold text-white text-center fade-in pulse-text-slow">가볍게! 맛있게! 제로하게!</p>
+      <div class="flex items-center justify-center mb-4 md:mb-6">
+        <p class="text-responsive-base md:text-responsive-lg font-semibold text-white text-center fade-in pulse-text-slow">가볍게! 맛있게! 제로하게!</p>
       </div>
       <div class="flex items-center justify-center">
-        <p class="text-lg font-semibold text-white text-center fade-in pulse-text-slow">현대인에게 가장 HOT한 제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
+        <p class="text-responsive-sm md:text-responsive-base font-semibold text-white text-center fade-in pulse-text-slow">현대인에게 가장 HOT한 제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
         </p>
       </div>
       <div class="flex items-center justify-center">
@@ -166,13 +267,13 @@
   </section>
 
   <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
-  <nav class="w-full bg-gray-900 py-3 fade-in sticky top-0 z-50 shadow" id="main-nav">
-    <div class="relative max-w-xl mx-auto">
-      <ul class="flex justify-center space-x-8 relative" id="nav-list">
-        <li id="nav-why" class="text-white font-semibold cursor-pointer">Why ZEROIN</li>
-        <li id="nav-feature" class="text-gray-400 cursor-pointer">특장점</li>
-        <li id="nav-product" class="text-gray-400 cursor-pointer">제품라인</li>
-        <li id="nav-cost" class="text-gray-400 cursor-pointer">창업비용</li>
+  <nav class="w-full bg-gray-900 py-2 md:py-3 fade-in sticky top-0 z-50 shadow" id="main-nav">
+    <div class="relative max-w-xl mx-auto px-4">
+      <ul class="flex justify-center space-x-4 md:space-x-8 relative" id="nav-list">
+        <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs md:text-responsive-sm">Why ZEROIN</li>
+        <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs md:text-responsive-sm">특장점</li>
+        <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs md:text-responsive-sm">제품라인</li>
+        <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs md:text-responsive-sm">창업비용</li>
       </ul>
       <div id="nav-bar" class="absolute bottom-0 h-1 bg-white rounded transition-all duration-300"
         style="left:0;width:64px;"></div>
@@ -181,57 +282,60 @@
 
   <!-- 주요 섹션 예시 (특장점) -->
   <section id="feature" class="w-full" style="background-color:#FF6B0B;">
-    <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-xl text-white mb-4">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸 실패없는 <span class="font-bold blue-bold">NEW
+    <div class="max-w-md mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-base md:text-responsive-lg text-white mb-4">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸 실패없는 <span class="font-bold blue-bold">NEW
           브랜드</span><br><span class="font-bold blue-bold">[이름없는 제로인]</span>을 런칭 했습니다.</h2>
-      <div class="flex justify-center mt-16 mb-16">
-        <svg width="1" height="70" viewBox="0 0 1 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="flex justify-center mt-8 md:mt-16 mb-8 md:mb-16">
+        <svg width="1" height="50" viewBox="0 0 1 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:hidden">
+          <line x1="0.5" y1="-2.18557e-08" x2="0.500003" y2="50" stroke="#2926B3" />
+        </svg>
+        <svg width="1" height="70" viewBox="0 0 1 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="hidden md:block">
           <line x1="0.5" y1="-2.18557e-08" x2="0.500003" y2="70" stroke="#2926B3" />
         </svg>
       </div>
 
-      <p class="text-lg text-white">24시 무인 [이름없는 과일가게]에 이어서</p>
-      <p class="text-lg text-white font-bold text-2xl">제 2의 브랜드</p>
-      <p class="text-lg text-white font-bold text-3xl blue-bold">[이름없는 제로인]</p>
+      <p class="text-responsive-sm md:text-responsive-base text-white">24시 무인 [이름없는 과일가게]에 이어서</p>
+      <p class="text-responsive-base md:text-responsive-lg text-white font-bold">제 2의 브랜드</p>
+      <p class="text-responsive-lg md:text-responsive-xl text-white font-bold blue-bold">[이름없는 제로인]</p>
       <img src="./images/why-zero-logo.png" alt="브랜드 이미지"
-        class="mx-auto mt-6 w-40 h-20 object-cover">
+        class="mx-auto mt-4 md:mt-6 w-32 h-16 md:w-40 md:h-20 object-cover">
     </div>
   </section>
 
   <!-- WHY ZEROIN? -->
-  <section id="why" class="w-full bg-gray-800 py-12 fade-in">
-    <div class="max-w-md mx-auto text-center">
-      <h2 class="text-2xl font-extrabold text-white mb-4">WHY ZEROIN?<br>왜 이름없는 제로인을 선택할까요?</h2>
-      <div class="grid grid-cols-1 gap-6">
-        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="font-bold orange-bold">Point 1</span>
-          <h3 class="text-lg font-bold mt-2"><span class="font-bold orange-bold">아무 상품</span>만 진열하지 않아요</h3>
-          <p class="text-gray-600">순환되는 확실한 상품만 상권에 맞춰 진열</p>
+  <section id="why" class="w-full bg-gray-800 py-8 md:py-12 fade-in">
+    <div class="max-w-md mx-auto text-center px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-white mb-4 md:mb-6">WHY ZEROIN?<br>왜 이름없는 제로인을 선택할까요?</h2>
+      <div class="grid grid-cols-1 gap-4 md:gap-6">
+        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold text-responsive-sm md:text-responsive-base">Point 1</span>
+          <h3 class="text-responsive-base md:text-responsive-lg font-bold mt-2"><span class="font-bold orange-bold">아무 상품</span>만 진열하지 않아요</h3>
+          <p class="text-gray-600 text-responsive-xs md:text-responsive-sm">순환되는 확실한 상품만 상권에 맞춰 진열</p>
         </div>
-        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="font-bold orange-bold">Point 2</span>
-          <h3 class="text-lg font-bold mt-2">24시 무인 노하우와 <span class="font-bold orange-bold">특허까지</span></h3>
-          <p class="text-gray-600">수많은 시행착오를 통한 편리한 원터치 주문시스템</p>
+        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold text-responsive-sm md:text-responsive-base">Point 2</span>
+          <h3 class="text-responsive-base md:text-responsive-lg font-bold mt-2">24시 무인 노하우와 <span class="font-bold orange-bold">특허까지</span></h3>
+          <p class="text-gray-600 text-responsive-xs md:text-responsive-sm">수많은 시행착오를 통한 편리한 원터치 주문시스템</p>
         </div>
-        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="font-bold orange-bold">Point 3</span>
-          <h3 class="text-lg font-bold mt-2">탄탄함을 증명하는 <span class="font-bold orange-bold">재무제표</span></h3>
-          <p class="text-gray-600">꾸준히 지속적으로 성장하고 있는 것을 지표로 증명</p>
+        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold text-responsive-sm md:text-responsive-base">Point 3</span>
+          <h3 class="text-responsive-base md:text-responsive-lg font-bold mt-2">탄탄함을 증명하는 <span class="font-bold orange-bold">재무제표</span></h3>
+          <p class="text-gray-600 text-responsive-xs md:text-responsive-sm">꾸준히 지속적으로 성장하고 있는 것을 지표로 증명</p>
         </div>
-        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="font-bold orange-bold">Point 4</span>
-          <h3 class="text-lg font-bold mt-2"><span class="font-bold orange-bold">제대로 된 상권</span>을 찾아드려요</h3>
-          <p class="text-gray-600">노하우를 기반으로 딱 맞는 상권 지역을 선정</p>
+        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold text-responsive-sm md:text-responsive-base">Point 4</span>
+          <h3 class="text-responsive-base md:text-responsive-lg font-bold mt-2"><span class="font-bold orange-bold">제대로 된 상권</span>을 찾아드려요</h3>
+          <p class="text-gray-600 text-responsive-xs md:text-responsive-sm">노하우를 기반으로 딱 맞는 상권 지역을 선정</p>
         </div>
-        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="font-bold orange-bold">Point 5</span>
-          <h3 class="text-lg font-bold mt-2">제로 상품 외 <span class="font-bold orange-bold">과일, 샐러드 판매 가능</span></h3>
-          <p class="text-gray-600">제로 상품뿐만 아니라 MZ들이 선호하는 요즘 인기 과일, 야채샐러드, 컵과일 판매 가능</p>
+        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold text-responsive-sm md:text-responsive-base">Point 5</span>
+          <h3 class="text-responsive-base md:text-responsive-lg font-bold mt-2">제로 상품 외 <span class="font-bold orange-bold">과일, 샐러드 판매 가능</span></h3>
+          <p class="text-gray-600 text-responsive-xs md:text-responsive-sm">제로 상품뿐만 아니라 MZ들이 선호하는 요즘 인기 과일, 야채샐러드, 컵과일 판매 가능</p>
         </div>
-        <div class="bg-white rounded-lg p-6 text-left shadow fade-in">
-          <span class="font-bold orange-bold">Point 6</span>
-          <h3 class="text-lg font-bold mt-2"><span class="font-bold orange-bold">전국 통합 포인트 </span> 서비스</h3>
-          <p class="text-gray-600">전국 어디든 제로인이라면 포인트 적립 및 결제 가능</p>
+        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow fade-in">
+          <span class="font-bold orange-bold text-responsive-sm md:text-responsive-base">Point 6</span>
+          <h3 class="text-responsive-base md:text-responsive-lg font-bold mt-2"><span class="font-bold orange-bold">전국 통합 포인트 </span> 서비스</h3>
+          <p class="text-gray-600 text-responsive-xs md:text-responsive-sm">전국 어디든 제로인이라면 포인트 적립 및 결제 가능</p>
         </div>
       </div>
     </div>
@@ -239,49 +343,49 @@
 
   <!-- Figma 선택 디자인(하단 WHY ZEROIN 장점 카드) -->
   <section id="feature" class="w-full" style="background-color:#FF6B0B;">
-    <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-white mb-8">꼭 <span class="font-bold blue-bold">이름없는 제로인</span>으로<br>시작해야만
+    <div class="max-w-md mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-white mb-6 md:mb-8">꼭 <span class="font-bold blue-bold">이름없는 제로인</span>으로<br>시작해야만
         하는 이유</h2>
-      <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_1.png" alt="배송비 부담 제로" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">배송비 부담 제로!</span>
-          <p class="text-xs text-gray-700 mb-2">배송비에 대한 부담을 줄여<br>최대한 수익만을 고려</p>
+      <div class="grid grid-cols-2 gap-3 md:gap-6">
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_1.png" alt="배송비 부담 제로" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">배송비 부담 제로!</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">배송비에 대한 부담을 줄여<br>최대한 수익만을 고려</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_2.png" alt="비수기 제로" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">비수기 제로!</span>
-          <p class="text-xs text-gray-700 mb-2">계절성이 없고 늘 인기 있는<br>제품으로만 구성</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_2.png" alt="비수기 제로" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">비수기 제로!</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">계절성이 없고 늘 인기 있는<br>제품으로만 구성</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_3.png" alt="빠른 수익전환" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">빠른 수익전환</span>
-          <p class="text-xs text-gray-700 mb-2">소비자들의 트렌드에 맞춰<br>적은 투자비용으로 빠른 수익</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_3.png" alt="빠른 수익전환" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">빠른 수익전환</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">소비자들의 트렌드에 맞춰<br>적은 투자비용으로 빠른 수익</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_4.png" alt="누구나 손쉽게 운영" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">누구나 손쉽게 운영</span>
-          <p class="text-xs text-gray-700 mb-2">주문 방식이 정말 쉽고<br>편하여 누구나 운영 가능</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_4.png" alt="누구나 손쉽게 운영" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">누구나 손쉽게 운영</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">주문 방식이 정말 쉽고<br>편하여 누구나 운영 가능</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_5.png" alt="시간 대비 최대 수익" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">시간 대비 최대 수익</span>
-          <p class="text-xs text-gray-700 mb-2">하루 최대 2시간으로<br>본업 이상의 수익 창출 가능</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_5.png" alt="시간 대비 최대 수익" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">시간 대비 최대 수익</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">하루 최대 2시간으로<br>본업 이상의 수익 창출 가능</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_6.png" alt="쉬운 주문 시스템" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">쉬운 주문 시스템</span>
-          <p class="text-xs text-gray-700 mb-2">어디서든 핸드폰만 있으면<br>입고, 재고, 주문 모두 가능</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_6.png" alt="쉬운 주문 시스템" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">쉬운 주문 시스템</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">어디서든 핸드폰만 있으면<br>입고, 재고, 주문 모두 가능</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_7.png" alt="통합 포인트 서비스" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">통합 포인트 서비스</span>
-          <p class="text-xs text-gray-700 mb-2">고객 유치를 위한 본사 지원, <br>전국 매장 통합 포인트 서비스</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_7.png" alt="통합 포인트 서비스" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">통합 포인트 서비스</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">고객 유치를 위한 본사 지원, <br>전국 매장 통합 포인트 서비스</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 flex flex-col items-center shadow mb-4">
-          <img src="./images/start_8.png" alt="다점포 관리 가능" class="object-cover mb-5 mt-5 w-20 h-20" />
-          <span class="text-lg font-extrabold text-gray-900 mb-2">다점포 관리 가능</span>
-          <p class="text-xs text-gray-700 mb-2">관리가 쉬운 24시 무인가게로<br>다점포 관리도 편하게 가능</p>
+        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4">
+          <img src="./images/start_8.png" alt="다점포 관리 가능" class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg" />
+          <span class="text-responsive-sm md:text-responsive-base font-extrabold text-gray-900 mb-1 md:mb-2">다점포 관리 가능</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center">관리가 쉬운 24시 무인가게로<br>다점포 관리도 편하게 가능</p>
         </div>
       </div>
     </div>
@@ -289,15 +393,15 @@
 
   <!-- Figma 선택 디자인(제로 시장 성장, 연령별 구매량 등) -->
   <section class="w-full">
-    <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-gray-800 mb-4">계속 성장하는 제로 시장,<br>전년 대비 3배 증가!</h2>
-      <img src="./images/graph.png" alt="제로 시장 성장 그래프" class="mx-auto my-6 rounded-lg shadow-lg w-full h-50">
-      <div class="mt-8 mb-2 text-sm text-black font-medium">&lt;최근 1년간 나이대별 제로상품 구매량 추이&gt;</div>
-      <h2 class="text-2xl font-extrabold text-gray-800 mb-8 mt-36">이미 준비된 이름없는 제로인과<br>함께 성장해보세요!</h2>
+    <div class="max-w-md mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-gray-800 mb-4 md:mb-6">계속 성장하는 제로 시장,<br>전년 대비 3배 증가!</h2>
+      <img src="./images/graph.png" alt="제로 시장 성장 그래프" class="mx-auto my-4 md:my-6 rounded-lg shadow-lg w-full h-auto">
+      <div class="mt-6 md:mt-8 mb-2 text-responsive-xs md:text-responsive-sm text-black font-medium">&lt;최근 1년간 나이대별 제로상품 구매량 추이&gt;</div>
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-gray-800 mb-6 md:mb-8 mt-20 md:mt-36">이미 준비된 이름없는 제로인과<br>함께 성장해보세요!</h2>
       <div class="flex flex-wrap justify-center mt-4">
-        <div class="bg-white rounded-lg shadow p-9 flex flex-col items-center justify-center"
+        <div class="bg-white rounded-lg shadow p-6 md:p-9 flex flex-col items-center justify-center"
           style="background-color: #FFECDF;">
-          <img src="./images/certification.png" alt="인증서" class="rounded mb-2 w-128 h-128 object-cover">
+          <img src="./images/certification.png" alt="인증서" class="rounded mb-2 w-full max-w-xs h-auto object-cover">
         </div>
       </div>
     </div>
@@ -305,27 +409,27 @@
 
   <!-- Figma 선택 디자인(제품 라인업, 원형 이미지 카드 등) -->
   <section id="product" class="w-full" style="background-color:#333333;">
-    <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-white mb-2">이름없는 제로인만의 <br>차별화한 제품라인</h2>
-      <p class="text-base font-semibold text-white mb-8">제로, 저칼로리, 저당, 무가당,<br>기능성 식품위주 제품으로 구성 </p>
-      <div class="grid grid-cols-2 gap-4 mt-12">
+    <div class="max-w-md mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-white mb-2 md:mb-4">이름없는 제로인만의 <br>차별화한 제품라인</h2>
+      <p class="text-responsive-sm md:text-responsive-base font-semibold text-white mb-6 md:mb-8">제로, 저칼로리, 저당, 무가당,<br>기능성 식품위주 제품으로 구성 </p>
+      <div class="grid grid-cols-2 gap-3 md:gap-4 mt-8 md:mt-12">
         <div class="flex items-center justify-center">
-          <img src="./images/line_1.jpg" alt="바나나" class="rounded-full w-36 h-36 object-cover">
-        </div>
-        <div class="flex items-center justify-center">
-          <img src="./images/line_2.jpg" alt="채소" class="rounded-full w-36 h-36 object-cover">
-        </div>
-        <div class="flex items-center justify-center mt-12 mb-12">
-          <img src="./images/line_3.jpg" alt="디저트" class="rounded-full w-36 h-36 object-cover">
-        </div>
-        <div class="flex items-center justify-center mt-12 mb-12">
-          <img src="./images/line_4.jpg" alt="우유" class="rounded-full w-36 h-36 object-cover">
+          <img src="./images/line_1.jpg" alt="바나나" class="rounded-full img-responsive-3xl object-cover">
         </div>
         <div class="flex items-center justify-center">
-          <img src="./images/line_5.jpg" alt="빵" class="rounded-full w-36 h-36 object-cover">
+          <img src="./images/line_2.jpg" alt="채소" class="rounded-full img-responsive-3xl object-cover">
+        </div>
+        <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12">
+          <img src="./images/line_3.jpg" alt="디저트" class="rounded-full img-responsive-3xl object-cover">
+        </div>
+        <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12">
+          <img src="./images/line_4.jpg" alt="우유" class="rounded-full img-responsive-3xl object-cover">
         </div>
         <div class="flex items-center justify-center">
-          <img src="./images/line_6.jpg" alt="아이스크림" class="rounded-full w-36 h-36 object-cover">
+          <img src="./images/line_5.jpg" alt="빵" class="rounded-full img-responsive-3xl object-cover">
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="./images/line_6.jpg" alt="아이스크림" class="rounded-full img-responsive-3xl object-cover">
         </div>
       </div>
     </div>
@@ -333,89 +437,89 @@
 
   <!-- Figma 선택 디자인(창업비용 표, 신규 가맹 혜택) -->
   <section id="cost" class="w-full" style="background-color:#fff;">
-    <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-orange-600 mb-2">투자는 적게! 수익은 많게!<br>이름없는 제로인 창업비용</h2>
-      <div class="flex justify-center mt-8 mb-8">
-        <div class="rounded-3xl shadow-lg overflow-hidden bg-white" style="max-width: 700px;">
-          <table class="min-w-full text-base text-center">
-            <thead>
-              <tr class="main-bg-color">
-                <th class="px-6 py-4 text-white font-extrabold text-lg">항목</th>
-                <th class="px-6 py-4 text-white font-extrabold text-lg">점주가</th>
-                <th class="px-6 py-4 text-white font-extrabold text-lg">상세내용</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">가맹비</td>
-                <td class="px-6 py-4 font-bold text-gray-800">400만원</td>
-                <td class="px-6 py-4 text-gray-700">30호점 이후 700만원<br>계약 종료 시 반환</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">물류보증금 / 이행보증금</td>
-                <td class="px-6 py-4 font-bold text-gray-800">500만원(선택사항)</td>
-                <td class="px-6 py-4 text-gray-700">계약 종료 시 반환</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">교육비</td>
-                <td class="px-6 py-4 font-bold text-gray-800">100만원</td>
-                <td class="px-6 py-4 text-gray-700">카톡 오픈채팅방을 통한 교육 진행</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">인테리어</td>
-                <td class="px-6 py-4 font-bold text-gray-800">1000만원~</td>
-                <td class="px-6 py-4 text-gray-700">가구 포함 / 기본 인테리어 기준</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">간판</td>
-                <td class="px-6 py-4 font-bold text-gray-800">180만원~</td>
-                <td class="px-6 py-4 text-gray-700">프리미엄 / 기본 플렉스 가격 상이</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">감리비/인테리어 컨셉</td>
-                <td class="px-6 py-4 font-bold text-gray-800">300만원(선택사항)</td>
-                <td class="px-6 py-4 text-gray-700">디자인 도면, 인테리어 시안 제공</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">홍보비</td>
-                <td class="px-6 py-4 font-bold text-gray-800">100만원</td>
-                <td class="px-6 py-4 text-gray-700">오픈 이벤트, 현수막, 디자인 문구</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">초도비용</td>
-                <td class="px-6 py-4 font-bold text-gray-800">1300만원</td>
-                <td class="px-6 py-4 text-gray-700">공산품, 과일 및 야채 (선택사항)</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">키오스크</td>
-                <td class="px-6 py-4 font-bold text-gray-800">270만원</td>
-                <td class="px-6 py-4 text-gray-700">재고관리, 재고주문, 금액할인변경, 이벤트홍보, 회원가입 및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">에어컨</td>
-                <td class="px-6 py-4 font-bold text-gray-800">350만원</td>
-                <td class="px-6 py-4 text-gray-700">길이나 상황에 따라 변동 가능</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">시설비</td>
-                <td class="px-6 py-4 font-bold text-gray-800">550만원</td>
-                <td class="px-6 py-4 text-gray-700">냉동고, 냉장고, CCTV, 쇼케이스(선택사항), 모니터, 부자재</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">로열티</td>
-                <td class="px-6 py-4 font-bold text-gray-800">2%</td>
-                <td class="px-6 py-4 text-gray-700">10호점 오픈 시 3개월 로열티 면제</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-gray-800 main-bg-color-light">주문 프로그램비</td>
-                <td class="px-6 py-4 font-bold text-gray-800">1만원</td>
-                <td class="px-6 py-4 text-gray-700">본사 부담 / 전국 포인트 통합 시스템</td>
-              </tr>
-              <tr class="main-bg-color">
-                <td class="px-6 py-4 font-extrabold text-white text-lg">합계</td>
-                <td class="px-6 py-4 font-extrabold text-white text-lg" colspan="2">4250만원 (VAT 별도, 선택사항 미포함)</td>
-              </tr>
-            </tbody>
+    <div class="max-w-md mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-orange-600 mb-2 md:mb-4">투자는 적게! 수익은 많게!<br>이름없는 제로인 창업비용</h2>
+              <div class="flex justify-center mt-6 md:mt-8 mb-6 md:mb-8">
+          <div class="rounded-2xl md:rounded-3xl shadow-lg overflow-hidden bg-white w-full max-w-full">
+            <table class="min-w-full text-center">
+              <thead>
+                <tr class="main-bg-color">
+                  <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs md:text-responsive-base">항목</th>
+                  <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs md:text-responsive-base">점주가</th>
+                  <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs md:text-responsive-base">상세내용</th>
+                </tr>
+              </thead>
+                          <tbody>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">가맹비</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">400만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">30호점 이후 700만원<br>계약 종료 시 반환</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">물류보증금 / 이행보증금</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">500만원(선택사항)</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">계약 종료 시 반환</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">교육비</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">100만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">카톡 오픈채팅방을 통한 교육 진행</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">인테리어</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">1000만원~</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">가구 포함 / 기본 인테리어 기준</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">간판</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">180만원~</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">프리미엄 / 기본 플렉스 가격 상이</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">감리비/인테리어 컨셉</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">300만원(선택사항)</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">디자인 도면, 인테리어 시안 제공</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">홍보비</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">100만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">오픈 이벤트, 현수막, 디자인 문구</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">초도비용</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">1300만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">공산품, 과일 및 야채 (선택사항)</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">키오스크</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">270만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">재고관리, 재고주문, 금액할인변경, 이벤트홍보, 회원가입 및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">에어컨</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">350만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">길이나 상황에 따라 변동 가능</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">시설비</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">550만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">냉동고, 냉장고, CCTV, 쇼케이스(선택사항), 모니터, 부자재</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">로열티</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">2%</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">10호점 오픈 시 3개월 로열티 면제</td>
+                </tr>
+                <tr>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 main-bg-color-light text-responsive-xs md:text-responsive-sm">주문 프로그램비</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-bold text-gray-800 text-responsive-xs md:text-responsive-sm">1만원</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xs md:text-responsive-sm">본사 부담 / 전국 포인트 통합 시스템</td>
+                </tr>
+                <tr class="main-bg-color">
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-sm md:text-responsive-base">합계</td>
+                  <td class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-sm md:text-responsive-base" colspan="2">4250만원 (VAT 별도, 선택사항 미포함)</td>
+                </tr>
+              </tbody>
           </table>
         </div>
       </div>
@@ -563,40 +667,49 @@
 
   <!-- Figma 선택 디자인(가맹점 창업 프로세스) -->
   <section class="w-full" style="background-color:#FFE2CE;">
-    <div class="max-w-5xl mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-gray-800 mb-10">이름없는 제로인 가맹점<br>창업 프로세스</h2>
-      <div class="flex flex-row items-stretch justify-center gap-0 mb-10">
+    <div class="max-w-5xl mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-gray-800 mb-6 md:mb-10">이름없는 제로인 가맹점<br>창업 프로세스</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 mb-6 md:mb-10">
         <!-- STEP 01 -->
-        <div class="relative w-full max-w-xs">
-          <div class="rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-xl py-4" style="background-color:#FFD9C0;">STEP 01.</div>
-            <div class="bg-white text-gray-800 font-extrabold text-2xl py-8">가맹 상담</div>
+        <div class="relative w-full">
+          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+            <div class="text-white font-extrabold text-responsive-sm md:text-responsive-base py-2 md:py-4" style="background-color:#FFD9C0;">STEP 01.</div>
+            <div class="bg-white text-gray-800 font-extrabold text-responsive-base md:text-responsive-lg py-4 md:py-8">가맹 상담</div>
           </div>
-        </div>
-        <!-- 화살표 SVG -->
-        <div class="flex items-center px-4">
-          <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
-          </svg>
+          <!-- 화살표 SVG (모바일에서는 아래쪽, 데스크탑에서는 오른쪽) -->
+          <div class="flex justify-center md:hidden mt-2">
+            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10">
+            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
+          </div>
         </div>
         <!-- STEP 02 -->
-        <div class="relative w-full max-w-xs">
-          <div class="rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-xl py-4" style="background-color:#FFC6A1;">STEP 02.</div>
-            <div class="bg-white text-gray-800 font-extrabold text-2xl py-8">1차 점포선정</div>
+        <div class="relative w-full">
+          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+            <div class="text-white font-extrabold text-responsive-sm md:text-responsive-base py-2 md:py-4" style="background-color:#FFC6A1;">STEP 02.</div>
+            <div class="bg-white text-gray-800 font-extrabold text-responsive-base md:text-responsive-lg py-4 md:py-8">1차 점포선정</div>
+          </div>
+          <div class="flex justify-center md:hidden mt-2">
+            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10">
+            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
           </div>
         </div>
-        <!-- 화살표 SVG -->
-        <div class="flex items-center px-4">
-          <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
-          </svg>
-        </div>
         <!-- STEP 03 -->
-        <div class="relative w-full max-w-xs">
-          <div class="rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-xl py-4" style="background-color:#FFAE79;">STEP 03.</div>
-            <div class="bg-white text-gray-800 font-extrabold text-2xl py-8">본사 미팅 및<br>가맹 계약</div>
+        <div class="relative w-full">
+          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+            <div class="text-white font-extrabold text-responsive-sm md:text-responsive-base py-2 md:py-4" style="background-color:#FFAE79;">STEP 03.</div>
+            <div class="bg-white text-gray-800 font-extrabold text-responsive-base md:text-responsive-lg py-4 md:py-8">본사 미팅 및<br>가맹 계약</div>
           </div>
         </div>
       </div>
@@ -608,40 +721,48 @@
           <svg width="40" height="40" viewBox="0 0 40 40"><path d="M10 20h20m0 0l-7-7m7 7l-7 7" stroke="#BDBDBD" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <!-- 2행 -->
-        <div class="flex flex-row items-stretch justify-center gap-0">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
         <!-- STEP 04 -->
-        <div class="relative w-full max-w-xs">
-          <div class="rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-xl py-4" style="background-color:#FFA468;">STEP 04.</div>
-            <div class="bg-white text-gray-800 font-extrabold text-2xl py-8">점포선정 및<br>시설공사</div>
+        <div class="relative w-full">
+          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+            <div class="text-white font-extrabold text-responsive-sm md:text-responsive-base py-2 md:py-4" style="background-color:#FFA468;">STEP 04.</div>
+            <div class="bg-white text-gray-800 font-extrabold text-responsive-base md:text-responsive-lg py-4 md:py-8">점포선정 및<br>시설공사</div>
           </div>
-        </div>
-        <!-- 화살표 SVG -->
-        <div class="flex items-center px-4">
-          <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
-          </svg>
+          <div class="flex justify-center md:hidden mt-2">
+            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10">
+            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
+          </div>
         </div>
         <!-- STEP 05 -->
-        <div class="relative w-full max-w-xs">
-          <div class="rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-xl py-4" style="background-color:#FF893C;">STEP 05.</div>
-            <div class="bg-white text-gray-800 font-extrabold text-2xl py-8">오픈 준비 및<br>상품 진열</div>
+        <div class="relative w-full">
+          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+            <div class="text-white font-extrabold text-responsive-sm md:text-responsive-base py-2 md:py-4" style="background-color:#FF893C;">STEP 05.</div>
+            <div class="bg-white text-gray-800 font-extrabold text-responsive-base md:text-responsive-lg py-4 md:py-8">오픈 준비 및<br>상품 진열</div>
+          </div>
+          <div class="flex justify-center md:hidden mt-2">
+            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10">
+            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
+            </svg>
           </div>
         </div>
-        <!-- 화살표 SVG -->
-        <div class="flex items-center px-4">
-          <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z" fill="#333333" fill-opacity="0.5"/>
-          </svg>
-        </div>
         <!-- STEP 06 -->
-        <div class="relative w-full max-w-xs">
-          <div class="rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-xl py-4" style="background-color:#FF6400;">STEP 06.</div>
-            <div class="bg-white text-gray-800 font-extrabold text-2xl py-4">
-              <span class="font-extrabold" style="color:#FF6B0B; font-size:1.4em;">GRAND OPEN</span><br>
-              <span class="font-bold">및 협동 매출 관리</span>
+        <div class="relative w-full">
+          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+            <div class="text-white font-extrabold text-responsive-sm md:text-responsive-base py-2 md:py-4" style="background-color:#FF6400;">STEP 06.</div>
+            <div class="bg-white text-gray-800 font-extrabold text-responsive-base md:text-responsive-lg py-2 md:py-4">
+              <span class="font-extrabold text-responsive-base md:text-responsive-lg" style="color:#FF6B0B;">GRAND OPEN</span><br>
+              <span class="font-bold text-responsive-sm md:text-responsive-base">및 협동 매출 관리</span>
             </div>
           </div>
         </div>
@@ -651,43 +772,43 @@
 
   <!-- Figma 선택 디자인(상담 신청 폼) -->
   <section id="contact" class="w-full" style="background-color:#f8f8f8;">
-    <div class="max-w-md mx-auto text-center py-12">
-      <h2 class="text-2xl font-extrabold text-gray-800 mb-6">자세한 내용을 듣고 싶으시다면?<br>지금 바로 상담받아보세요!</h2>
+    <div class="max-w-md mx-auto text-center py-8 md:py-12 px-4">
+      <h2 class="text-responsive-lg md:text-responsive-2xl font-extrabold text-gray-800 mb-4 md:mb-6">자세한 내용을 듣고 싶으시다면?<br>지금 바로 상담받아보세요!</h2>
       <img src="./images/chat-chat.png"
-        alt="상담 이미지" class="mx-auto my-6 rounded-lg w-36 h-36 object-cover">
-      <form class="space-y-4 mt-8">
+        alt="상담 이미지" class="mx-auto my-4 md:my-6 rounded-lg img-responsive-3xl object-cover">
+      <form class="space-y-3 md:space-y-4 mt-6 md:mt-8">
         <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1">성함<span class="text-red-500">*</span></label>
+          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm md:text-responsive-base">성함<span class="text-red-500">*</span></label>
           <input type="text" name="name" required placeholder="성함 입력"
-            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm md:text-responsive-base" />
         </div>
         <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1">연락처<span class="text-red-500">*</span></label>
+          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm md:text-responsive-base">연락처<span class="text-red-500">*</span></label>
           <input type="text" name="phone" required placeholder="숫자만(-제외)"
-            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm md:text-responsive-base" />
         </div>
         <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1">이메일<span class="text-red-500">*</span></label>
+          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm md:text-responsive-base">이메일<span class="text-red-500">*</span></label>
           <input type="email" name="email" required placeholder="이메일 주소 입력"
-            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm md:text-responsive-base" />
         </div>
         <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1">가맹 희망 지역<span class="text-red-500">*</span></label>
+          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm md:text-responsive-base">가맹 희망 지역<span class="text-red-500">*</span></label>
           <input type="text" name="region" required placeholder="희망 지역 입력 [예) 서울시 마포구]"
-            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm md:text-responsive-base" />
         </div>
         <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1">알게된 경로</label>
+          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm md:text-responsive-base">알게된 경로</label>
           <input type="text" name="source" placeholder="알게된 경로 입력"
-            class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white" />
+            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm md:text-responsive-base" />
         </div>
         <div class="flex items-center mt-2">
-          <input type="checkbox" id="agree" required class="mr-2 w-5 h-5 border-gray-400 rounded">
-          <label for="agree" class="text-gray-700 text-sm">(필수) 개인정보 수집 이용 동의</label>
+          <input type="checkbox" id="agree" required class="mr-2 w-4 h-4 md:w-5 md:h-5 border-gray-400 rounded">
+          <label for="agree" class="text-gray-700 text-responsive-xs md:text-responsive-sm">(필수) 개인정보 수집 이용 동의</label>
         </div>
-        <div class="text-right text-xs text-red-500">*필수 입력</div>
+        <div class="text-right text-responsive-xs text-red-500">*필수 입력</div>
         <button type="submit"
-          class="w-full bg-gray-800 text-white font-bold py-3 rounded-lg mt-4 hover:bg-gray-900 transition">상담
+          class="w-full bg-gray-800 text-white font-bold py-2 md:py-3 rounded-lg mt-4 hover:bg-gray-900 transition text-responsive-sm md:text-responsive-base">상담
           신청하기</button>
       </form>
     </div>
