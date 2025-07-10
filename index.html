@@ -43,6 +43,68 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .scale-in.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .slide-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .slide-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .slide-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-right {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .slide-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .pulse-text {
+      animation: pulseScale 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseScale {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .pulse-text-slow {
+      animation: pulseScaleSlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseScaleSlow {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+    }
 
     .blue-bold {
       color: #2926B3;
@@ -86,15 +148,15 @@
     <div class="absolute inset-0 bg-black" style="opacity:0.7;"></div>
     <div class="relative w-full h-full z-10 p-40">
       <div class="flex items-center justify-center pb-10">
-        <h1 class="text-4xl font-bold text-blue-800 text-center fade-in leading-tight why-zeroin-title">
+        <h1 class="text-4xl font-bold text-blue-800 text-center fade-in leading-tight why-zeroin-title pulse-text">
           칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
         </h1>
       </div>
       <div class="flex items-center justify-center">
-        <p class="text-lg font-semibold text-white text-center fade-in">가볍게! 맛있게! 제로하게!</p>
+        <p class="text-lg font-semibold text-white text-center fade-in pulse-text-slow">가볍게! 맛있게! 제로하게!</p>
       </div>
       <div class="flex items-center justify-center">
-        <p class="text-lg font-semibold text-white text-center fade-in">현대인에게 가장 HOT한 제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
+        <p class="text-lg font-semibold text-white text-center fade-in pulse-text-slow">현대인에게 가장 HOT한 제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
         </p>
       </div>
       <div class="flex items-center justify-center">
@@ -634,7 +696,8 @@
   <!-- 스크롤 애니메이션 스크립트 -->
   <script>
     function fadeInOnScroll() {
-      $('.fade-in').each(function () {
+      // 모든 애니메이션 클래스에 대해 처리
+      $('.fade-in, .scale-in, .slide-up, .slide-left, .slide-right').each(function () {
         var elemTop = $(this).offset().top;
         var winBottom = $(window).scrollTop() + $(window).height();
         if (elemTop < winBottom - 50) {
@@ -643,6 +706,17 @@
       });
     }
     $(document).ready(function () {
+      // 다양한 애니메이션 클래스를 주요 요소에 랜덤/순차적으로 부여
+      var anims = ['fade-in', 'scale-in', 'slide-up', 'slide-left', 'slide-right'];
+      var idx = 0;
+      // 섹션별 주요 요소에 애니메이션 클래스 부여
+      $('section, .bg-white, .rounded-2xl, .rounded-3xl, .shadow-lg, img, h1, h2, h3, p, .card, .feature-card, .why-zeroin-title').each(function () {
+        // 중복 방지
+        if (!$(this).hasClass('fade-in') && !$(this).hasClass('scale-in') && !$(this).hasClass('slide-up') && !$(this).hasClass('slide-left') && !$(this).hasClass('slide-right')) {
+          $(this).addClass(anims[idx % anims.length]);
+          idx++;
+        }
+      });
       fadeInOnScroll();
       $(window).on('scroll', fadeInOnScroll);
       // 부드러운 스크롤
