@@ -14,6 +14,7 @@
   <style>
     html, body {
       font-family: 'Pretendard Variable', sans-serif;
+      overflow-x: hidden;
       width: 100%;
       max-width: 100vw;
       margin: 0;
@@ -21,9 +22,24 @@
       box-sizing: border-box;
     }
 
-    /* 네비게이션 컨테이너만 overflow 제어 */
-    .main-content {
-      overflow-x: hidden;
+    /* 모든 섹션과 콘텐츠의 overflow 제어 */
+    .main-content, section, div {
+      max-width: 100vw;
+    }
+
+    /* 네비게이션을 fixed로 고정 */
+    nav[id="main-nav"] {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    nav[id="main-nav"].show {
+      transform: translateY(0);
     }
 
     *, *::before, *::after {
@@ -401,7 +417,7 @@
   </section>
 
   <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
-  <nav class="max-w-full bg-gray-900 py-6 md:py-12 fade-in sticky top-0 z-50 shadow" id="main-nav">
+  <nav class="max-w-full bg-gray-900 py-6 md:py-12 fade-in shadow" id="main-nav">
     <div class="relative max-w-4xl mx-auto px-4">
       <ul class="grid grid-cols-4 gap-0 relative" id="nav-list">
         <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-sm text-center">Why ZEROIN</li>
@@ -1201,12 +1217,27 @@
       // 초기 위치 설정을 지연시켜 정확한 계산 보장
       setTimeout(function () {
         moveBarTo(0);
+        toggleNavigation(); // 초기 네비게이션 상태 설정
       }, 100);
 
-      // 스크롤 시 위치 변경
+      // 네비게이션 표시/숨김 제어
+      var $nav = $('#main-nav');
+      var navTriggerOffset = $(window).height(); // 첫 화면 지나면 표시
+      
+      function toggleNavigation() {
+        var scroll = $(window).scrollTop();
+        if (scroll > navTriggerOffset) {
+          $nav.addClass('show');
+        } else {
+          $nav.removeClass('show');
+        }
+      }
+
+      // 스크롤 시 위치 변경 및 네비게이션 표시/숨김
       $(window).on('scroll', function () {
         var idx = getCurrentSection();
         moveBarTo(idx);
+        toggleNavigation();
       });
 
       // 창 크기 변경 시 위치 재계산
