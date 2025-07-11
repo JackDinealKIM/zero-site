@@ -28,60 +28,27 @@
       overflow-y: auto;
     }
 
-    /* 모든 요소의 overflow 제어 */
-    * {
-      max-width: 100vw;
-    }
-
-    /* 컨테이너들의 강제 제한 */
-    .main-content, section, div, nav {
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
-
-    /* 특별히 문제가 될 수 있는 요소들 */
+    /* 이미지와 테이블만 제한 */
     img, svg, table {
       max-width: 100%;
       height: auto;
     }
 
-    /* 절대 위치 요소들의 제한 */
-    .absolute, [class*="absolute"] {
-      max-width: 100vw;
-      left: 0;
-      right: 0;
-    }
-
-    /* 그리드와 플렉스 컨테이너 제한 */
-    .grid, .flex, [class*="grid"], [class*="flex"] {
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
-
-    /* 전체 페이지 래퍼 */
+    /* 전체 페이지 래퍼만 overflow 제어 */
     .page-wrapper {
-      width: 100vw;
-      max-width: 100vw;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* 네비게이션 기본 스타일 */
-    nav[id="main-nav"] {
-      position: relative;
-      z-index: 50;
       width: 100%;
       max-width: 100vw;
-      transition: all 0.3s ease;
+      position: relative;
     }
 
-    /* 스크롤 시 고정 스타일 */
-    nav[id="main-nav"].fixed {
-      position: fixed;
+    /* 네비게이션 sticky 스타일 */
+    nav[id="main-nav"] {
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      width: 100%;
+      background-color: rgb(17, 24, 39); /* bg-gray-900 */
+      transition: all 0.3s ease;
     }
 
     *, *::before, *::after {
@@ -1236,8 +1203,7 @@
       var navIds = ['#nav-why', '#nav-feature', '#nav-product', '#nav-cost'];
       var $navBar = $('#nav-bar');
       var $navList = $('#nav-list');
-      var $nav = $('#main-nav');
-      var navOffset = $nav.offset().top; // 네비게이션의 원래 위치 저장
+
       function moveBarTo(idx) {
         // 실제 li 요소의 위치 기반으로 계산
         var $li = $(navIds[idx]);
@@ -1250,9 +1216,9 @@
         $(navIds.join(',')).removeClass('text-white font-semibold').addClass('text-gray-400');
         $(navIds[idx]).removeClass('text-gray-400').addClass('text-white font-semibold');
       }
+
       function getCurrentSection() {
         var scroll = $(window).scrollTop();
-        var winH = $(window).height();
         var idx = 0;
         for (var i = 0; i < sectionIds.length; i++) {
           var top = $('#' + sectionIds[i]).offset().top - 180;
@@ -1260,36 +1226,22 @@
         }
         return idx;
       }
-      // 초기 위치 설정을 지연시켜 정확한 계산 보장
+
+      // 초기 위치 설정
       setTimeout(function () {
-        navOffset = $nav.offset().top; // 초기 네비게이션 위치 재계산
         moveBarTo(0);
-        handleNavigation(); // 초기 네비게이션 상태 확인
       }, 100);
 
-      // 네비게이션 고정 함수
-      function handleNavigation() {
-        var scroll = $(window).scrollTop();
-        if (scroll >= navOffset) {
-          $nav.addClass('fixed');
-        } else {
-          $nav.removeClass('fixed');
-        }
-      }
-
-      // 스크롤 시 위치 변경 및 네비게이션 고정
+      // 스크롤 시 네비게이션 바 위치 변경
       $(window).on('scroll', function () {
         var idx = getCurrentSection();
         moveBarTo(idx);
-        handleNavigation();
       });
 
       // 창 크기 변경 시 위치 재계산
       $(window).on('resize', function () {
-        navOffset = $nav.offset().top; // 네비게이션 위치 재계산
         var idx = getCurrentSection();
         moveBarTo(idx);
-        handleNavigation();
       });
       // 메뉴 클릭 시 해당 섹션으로 이동
       navIds.forEach(function (sel, idx) {
