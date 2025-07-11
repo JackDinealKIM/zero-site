@@ -430,10 +430,10 @@
   <nav class="max-w-full bg-gray-900 py-6 md:py-12 anim-target shadow" id="main-nav">
     <div class="relative max-w-4xl mx-auto px-4 anim-target">
       <ul class="grid grid-cols-4 gap-0 relative anim-target" id="nav-list">
-        <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-sm text-center anim-target">Why ZEROIN</li>
-        <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-sm text-center anim-target">특장점</li>
-        <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-sm text-center anim-target">제품라인</li>
-        <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-sm text-center anim-target">창업비용</li>
+        <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center anim-target">Why ZEROIN</li>
+        <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">특장점</li>
+        <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">제품라인</li>
+        <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">창업비용</li>
       </ul>
       <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300 anim-target" style="bottom: -20px;"></div>
     </div>
@@ -513,7 +513,7 @@
   </section>
 
   <!-- Figma 선택 디자인(하단 WHY ZEROIN 장점 카드) -->
-  <section id="feature" class="w-full anim-target" style="background-color:#FF6B0B;">
+  <section id="positive" class="w-full anim-target" style="background-color:#FF6B0B;">
     <div class="max-w-6xl mx-auto text-center py-14 md:py-20 px-4 anim-target">
       <h2 class="text-responsive-lg font-extrabold text-white mb-14 md:mb-24 anim-target">꼭 <span
           class="font-bold blue-bold anim-target">이름없는 제로인</span>으로<br>시작해야만
@@ -598,22 +598,22 @@
       <p class="text-responsive-sm font-semibold text-white mb-6 md:mb-8 anim-target">제로, 저칼로리, 저당, 무가당,<br>기능성 식품위주 제품으로 구성 </p>
       <div class="grid grid-cols-2 gap-2 md:gap-4 mt-20 md:mt-12 anim-target">
         <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_1.jpg" alt="제품 이미지 1" class="w-full h-auto rounded-lg shadow-lg anim-target">
+          <img src="./images/line_1.jpg" alt="제품 이미지 1" class="rounded-full img-responsive-3xl object-cover h-auto rounded-lg shadow-lg anim-target">
         </div>
         <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_2.jpg" alt="제품 이미지 2" class="w-full h-auto rounded-lg shadow-lg anim-target">
+          <img src="./images/line_2.jpg" alt="제품 이미지 2" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
         </div>
         <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12 anim-target">
-          <img src="./images/line_3.jpg" alt="제품 이미지 3" class="w-full h-auto rounded-lg shadow-lg anim-target">
+          <img src="./images/line_3.jpg" alt="제품 이미지 3" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
         </div>
         <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12 anim-target">
-          <img src="./images/line_4.jpg" alt="제품 이미지 4" class="w-full h-auto rounded-lg shadow-lg anim-target">
+          <img src="./images/line_4.jpg" alt="제품 이미지 4" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
         </div>
         <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_5.jpg" alt="제품 이미지 5" class="w-full h-auto rounded-lg shadow-lg anim-target">
+          <img src="./images/line_5.jpg" alt="제품 이미지 5" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
         </div>
         <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_6.jpg" alt="제품 이미지 6" class="w-full h-auto rounded-lg shadow-lg anim-target">
+          <img src="./images/line_6.jpg" alt="제품 이미지 6" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
         </div>
       </div>
     </div>
@@ -1217,7 +1217,7 @@
       });
 
       // 네비게이션 바 이동
-      var sectionIds = ['why', 'feature', 'product', 'cost'];
+      var sectionIds = ['feature', 'positive', 'product', 'cost'];
       var navIds = ['#nav-why', '#nav-feature', '#nav-product', '#nav-cost'];
       var $navBar = $('#nav-bar');
       var $navList = $('#nav-list');
