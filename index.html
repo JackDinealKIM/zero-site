@@ -14,12 +14,16 @@
   <style>
     html, body {
       font-family: 'Pretendard Variable', sans-serif;
-      overflow-x: hidden;
       width: 100%;
       max-width: 100vw;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    /* 네비게이션 컨테이너만 overflow 제어 */
+    .main-content {
+      overflow-x: hidden;
     }
 
     *, *::before, *::after {
@@ -162,9 +166,9 @@
     }
 
     .img-responsive-3xl {
-      width: 12.8rem;
+      width: 8.8rem;
       /* 128px * 1.6 */
-      height: 12.8rem;
+      height: 8.8rem;
     }
 
     /* 태블릿 크기 */
@@ -409,6 +413,7 @@
     </div>
   </nav>
 
+  <div class="main-content">
   <!-- 주요 섹션 예시 (특장점) -->
   <section id="feature" class="w-full" style="background-color:#FF6B0B;">
     <div class="mx-auto text-center">
@@ -1044,6 +1049,7 @@
       </form>
     </div>
   </section>
+  </div>
 
   <!-- 개인정보 수집 이용 동의 다이얼로그 -->
   <div id="privacyDialog" class="fixed inset-0 z-50 hidden">
