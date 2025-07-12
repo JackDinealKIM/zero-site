@@ -3,18 +3,35 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>이름없는 제로인</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Potta+One:wght@400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Potta One 폰트 로드 확인
+    document.addEventListener('DOMContentLoaded', function () {
+      // 폰트 로드 체크
+      document.fonts.ready.then(function () {
+        console.log('폰트 로드 완료');
+        // Potta One 폰트가 로드되었는지 확인
+        if (document.fonts.check('1em "Potta One"')) {
+          console.log('Potta One 폰트 로드됨');
+        } else {
+          console.log('Potta One 폰트 로드 실패');
+        }
+      });
+    });
+  </script>
   <style>
-    html, body {
+    html,
+    body {
       font-family: 'Pretendard Variable', sans-serif;
       width: 100vw;
       max-width: 100vw;
@@ -31,7 +48,9 @@
     }
 
     /* 이미지와 테이블만 제한 */
-    img, svg, table {
+    img,
+    svg,
+    table {
       max-width: 100%;
       height: auto;
     }
@@ -49,11 +68,14 @@
       top: 0;
       z-index: 1000;
       width: 100%;
-      background-color: rgb(17, 24, 39); /* bg-gray-900 */
+      background-color: rgb(17, 24, 39);
+      /* bg-gray-900 */
       transition: all 0.3s ease;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
@@ -339,13 +361,40 @@
     }
 
     .potta-one {
-      font-family: 'Potta One', cursive;
-      font-weight: 400;
+      font-family: 'Potta One', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      font-weight: 400 !important;
       font-display: swap;
     }
-    
-    /* Potta One 폰트 확실히 로드하기 */
-    @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+
+    /* 더 구체적인 potta-one 지정 */
+    div.potta-one {
+      font-family: 'Potta One', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      font-weight: 400 !important;
+    }
+
+    /* 따옴표 SVG 반응형 크기 */
+    .quote-svg {
+      width: 20px;
+      height: 16px;
+    }
+
+    .quote-svg-right {
+      width: 21px;
+      height: 16px;
+    }
+
+    /* 태블릿 크기에서 2배 크기 */
+    @media (min-width: 768px) {
+      .quote-svg {
+        width: 40px;
+        height: 32px;
+      }
+
+      .quote-svg-right {
+        width: 42px;
+        height: 32px;
+      }
+    }
 
     .custom-title {
       font-size: 2.4375rem;
@@ -392,708 +441,840 @@
 
 <body class="bg-white text-gray-900">
   <div class="page-wrapper">
-  <!-- 헤더: 로고 + 텍스트 + 창업문의 버튼 -->
-  <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-5 md:py-4 px-4 anim-target">
-    <div class="flex items-center anim-target">
-      <!-- 로고 (원형 + 포인트 점) -->
-      <div class="w-24 h-8 md:w-48 md:h-12 flex items-center justify-center mr-2 md:mr-3 anim-target">
-        <img src="./images/zero-logo.png" alt="제로스토어" class="w-[00px] anim-target">
+    <!-- 헤더: 로고 + 텍스트 + 창업문의 버튼 -->
+    <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-5 md:py-4 px-4 anim-target">
+      <div class="flex items-center anim-target">
+        <!-- 로고 (원형 + 포인트 점) -->
+        <div class="w-24 h-8 md:w-48 md:h-12 flex items-center justify-center mr-2 md:mr-3 anim-target">
+          <a href="/">
+            <img src="./images/zero-logo.png" alt="제로스토어" class="w-[00px] anim-target"></a>
+          </a>
+        </div>
+
       </div>
-      
-    </div>
-    <a href="#contact"
-      class="text-white font-semibold text-responsive-sm px-4 py-2 md:px-8 md:py-3 rounded-xl md:rounded-2xl shadow-lg transition text-center anim-target"
-      style="background-color:#FF5500;">창업문의</a>
-  </header>
+      <a href="#contact"
+        class="text-white font-semibold text-responsive-sm px-4 py-2 md:px-8 md:py-3 rounded-xl md:rounded-2xl shadow-lg transition text-center anim-target"
+        style="background-color:#FF5500;">창업문의</a>
+    </header>
 
-  <!-- 상단 배너 (Figma 선택 영역 반영) -->
-  <section class="relative w-full min-h-[80vh] md:min-h-[120vh] flex items-center justify-center anim-target"
-    style="background: url('images/why-zero-bg.jpg') center/cover no-repeat;">
-    <div class="absolute inset-0 bg-black anim-target" style="opacity:0.7;"></div>
-    <div class="relative w-full h-full z-10 p-10 md:p-20 lg:p-40 mb-10 md:mb-20 lg:mb-40 anim-target">
-      <div class="flex items-center justify-center pb-6 md:pb-10 pt-20 md:pt-40 lg:pt-80 anim-target">
-        <h1 class="relative z-50 font-bold text-center anim-target leading-tight why-zeroin-title pulse-text custom-title"
-          style="color: #fff;">
-          칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
-        </h1>
-      </div>
-      <div class="flex items-center justify-center mb-4 md:mb-10 pt-8 md:pt-16 anim-target">
-        <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow" style="color: #C3DCFF;">가볍게! 맛있게! 제로하게!</p>
-      </div>
-      <div class="flex items-center justify-center anim-target">
-        <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow" style="color: #C3DCFF;">현대인에게 가장 HOT한
-          제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
-  <nav class="max-w-full bg-gray-900 py-6 md:py-12 anim-target shadow" id="main-nav">
-    <div class="relative max-w-4xl mx-auto px-4 anim-target">
-      <ul class="grid grid-cols-4 gap-0 relative anim-target" id="nav-list">
-        <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center anim-target">Why ZEROIN</li>
-        <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">특장점</li>
-        <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">제품라인</li>
-        <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">창업비용</li>
-      </ul>
-      <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300 anim-target" style="bottom: -20px;"></div>
-    </div>
-  </nav>
-
-  <div class="main-content anim-target">
-  <!-- 주요 섹션 예시 (특장점) -->
-  <section id="feature" class="w-full anim-target" style="background-color:#FF6B0B;">
-    <div class="mx-auto text-center anim-target">
-      <h2 class="pt-28 md:py-12 text-responsive-sm text-white mb-4 anim-target">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸 실패없는 <span
-          class="font-extrabold blue-bold anim-target">NEW
-          브랜드</span><br><span class="font-extrabold blue-bold anim-target">[이름없는 제로인]</span>을 런칭 했습니다.</h2>
-      <div class="flex justify-center mt-10 mb-12 md:mt-16 mb-8 md:mb-16 anim-target">
-        <svg width="1" height="100" viewBox="0 0 1 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:hidden anim-target">
-          <line x1="0.5" y1="0" x2="0.5" y2="50" stroke="white" />
-        </svg>
-        <svg width="200" height="1" viewBox="0 0 200 1" fill="none" xmlns="http://www.w3.org/2000/svg"
-          class="hidden md:block anim-target">
-          <line x1="0" y1="0.5" x2="200" y2="0.5" stroke="white" />
-        </svg>
-      </div>
-
-      <p class="text-responsive-sm text-white anim-target">24시 무인 [이름없는 과일가게]에 이어서</p>
-      <p class="text-responsive-2xl  text-white font-bold anim-target">제 2의 브랜드</p>
-      <p class="text-responsive-3xl text-white font-extrabold blue-bold anim-target">[이름없는 제로인]</p>
-      <p class="text-responsive-3xl text-white font-extrabold blue-bold pb-20 anim-target">
-        <img src="./images/why-zero-logo.png" class="mx-auto anim-target" style="height: 105px;" alt="브랜드 이미지">
-      </p>
-
-    </div>
-  </section>
-
-  <!-- WHY ZEROIN? -->
-  <section id="why" class="w-full bg-gray-800 py-16 md:py-32 anim-target">
-    <div class="max-w-6xl mx-auto text-center px-6 anim-target">
-      <h2 class="text-responsive-xl font-extrabold text-white mb-16 md:mb-32 anim-target">WHY ZEROIN?<br>왜
-        이름없는 제로인을 선택할까요?</h2>
-      <div class="grid grid-cols-1 gap-8 md:gap-6 anim-target">
-        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
-          <span class="font-bold orange-bold text-responsive-sm anim-target">Point 1</span>
-          <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
-              class="font-bold orange-bold anim-target">아무 상품</span>만 진열하지 않아요</h3>
-          <p class="text-gray-600 text-responsive-sm anim-target">순환되는 확실한 상품만 상권에 맞춰 진열</p>
+    <!-- 상단 배너 (Figma 선택 영역 반영) -->
+    <section class="relative w-full min-h-[80vh] md:min-h-[120vh] flex items-center justify-center anim-target"
+      style="background: url('images/why-zero-bg.jpg') center/cover no-repeat;">
+      <div class="absolute inset-0 bg-black anim-target" style="opacity:0.7;"></div>
+      <div class="relative w-full h-full z-10 p-10 md:p-20 lg:p-40 mb-10 md:mb-20 lg:mb-40 anim-target">
+        <div class="flex items-center justify-center pb-6 md:pb-10 pt-20 md:pt-40 lg:pt-80 anim-target">
+          <h1
+            class="relative z-50 font-bold text-center anim-target leading-tight why-zeroin-title pulse-text custom-title"
+            style="color: #fff;">
+            칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
+          </h1>
         </div>
-        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
-          <span class="font-bold orange-bold text-responsive-sm anim-target">Point 2</span>
-          <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
-              class="font-bold orange-bold anim-target">특허까지</span></h3>
-          <p class="text-gray-600 text-responsive-sm anim-target">수많은 시행착오를 통한 편리한 원터치 주문시스템</p>
-        </div>
-        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
-          <span class="font-bold orange-bold text-responsive-sm anim-target">Point 3</span>
-          <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
-              class="font-bold orange-bold anim-target">재무제표</span></h3>
-          <p class="text-gray-600 text-responsive-sm anim-target">꾸준히 지속적으로 성장하고 있는 것을 지표로 증명</p>
-        </div>
-        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
-          <span class="font-bold orange-bold text-responsive-sm anim-target">Point 4</span>
-          <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
-              class="font-bold orange-bold anim-target">제대로 된 상권</span>을 찾아드려요</h3>
-          <p class="text-gray-600 text-responsive-sm anim-target">노하우를 기반으로 딱 맞는 상권 지역을 선정</p>
-        </div>
-        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
-          <span class="font-bold orange-bold text-responsive-sm anim-target">Point 5</span>
-          <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
-              class="font-bold orange-bold anim-target">과일, 샐러드 판매 가능</span></h3>
-          <p class="text-gray-600 text-responsive-sm anim-target">제로 상품뿐만 아니라 MZ들이 선호하는<br>요즘 인기 과일, 야채샐러드, 컵과일 판매 가능</p>
-        </div>
-        <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
-          <span class="font-bold orange-bold text-responsive-sm anim-target">Point 6</span>
-          <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
-              class="font-bold orange-bold anim-target">전국 통합 포인트 </span> 서비스</h3>
-          <p class="text-gray-600 text-responsive-sm anim-target">전국 어디든 제로인이라면 포인트 적립 및 결제 가능</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Figma 선택 디자인(하단 WHY ZEROIN 장점 카드) -->
-  <section id="positive" class="w-full anim-target" style="background-color:#FF6B0B;">
-    <div class="max-w-6xl mx-auto text-center py-14 md:py-20 px-4 anim-target">
-      <h2 class="text-responsive-lg font-extrabold text-white mb-14 md:mb-24 anim-target">꼭 <span
-          class="font-bold blue-bold anim-target">이름없는 제로인</span>으로<br>시작해야만
-        하는 이유</h2>
-      <div class="grid grid-cols-2 gap-3 md:gap-6 anim-target">
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_1.png" alt="배송비 부담 제로"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">배송비 부담 제로!</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">배송비에 대한 부담을 줄여<br>최대한 수익만을 고려</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_2.png" alt="비수기 제로"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">비수기 제로!</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">계절성이 없고 늘 인기 있는<br>제품으로만 구성</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_3.png" alt="빠른 수익전환"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">빠른 수익전환</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">소비자들의 트렌드에 맞춰<br>적은 투자비용으로 빠른 수익</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_4.png" alt="누구나 손쉽게 운영"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">누구나 손쉽게 운영</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">주문 방식이 정말 쉽고<br>편하여 누구나 운영 가능</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_5.png" alt="시간 대비 최대 수익"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">시간 대비 최대 수익</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">하루 최대 2시간으로<br>본업 이상의 수익 창출 가능</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_6.png" alt="쉬운 주문 시스템"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">쉬운 주문 시스템</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">어디서든 핸드폰만 있으면<br>입고, 재고, 주문 모두 가능</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_7.png" alt="통합 포인트 서비스"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">통합 포인트 서비스</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">고객 유치를 위한 본사 지원,<br>전국 매장 통합 포인트 서비스</p>
-        </div>
-        <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_8.png" alt="다점포 관리 가능"
-            class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">다점포 관리 가능</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">관리가 쉬운 24시 무인가게로<br>다점포 관리도 편하게 가능</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Figma 선택 디자인(제로 시장 성장, 연령별 구매량 등) -->
-  <section class="w-full anim-target">
-    <div class="max-w-6xl mx-auto text-center py-14 md:py-24 px-4 anim-target">
-      <h2 class="text-responsive-lg font-extrabold text-gray-800 mb-14 md:mb-24 anim-target">계속 성장하는 제로
-        시장,<br>전년 대비 <span class="text-red-500">3배</span></span> 증가!</h2>
-      <img src="./images/chart.png" alt="제로 시장 성장 그래프" class="mx-auto my-4 md:my-6 rounded-lg shadow-lg w-full h-auto anim-target">
-      <div class="mt-6 md:mt-8 mb-2 text-responsive-sm text-black font-medium anim-target">&lt;최근 1년간 나이대별 제로상품 구매량 추이&gt;</div>
-      <h2 class="text-responsive-lg font-extrabold text-gray-800 mb-10 md:mb-8 mt-28 md:mt-48 anim-target">이미
-        준비된 이름없는 제로인과<br>함께 성장해보세요!</h2>
-      <div class="flex justify-center mt-10 anim-target w-full">
-        <div class="w-full shadow p-6 md:p-9 flex flex-col items-center justify-center anim-target"
-          style="width: 100%; background-color: #FFF8F3;">
-          <img src="./images/certification-new.png" alt="인증서" class="w-full h-auto anim-target">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Figma 선택 디자인(제품 라인업, 원형 이미지 카드 등) -->
-  <section id="product" class="w-full anim-target" style="background-color:#333333;">
-    <div class="max-w-3xl mx-auto text-center py-20 md:py-24 px-4 anim-target">
-      <h2 class="text-responsive-xl font-extrabold text-white mb-6 md:mb-4 anim-target">이름없는 제로인만의 <br>차별화한
-        제품라인</h2>
-      <p class="text-responsive-sm font-semibold text-white mb-6 md:mb-8 anim-target">제로, 저칼로리, 저당, 무가당,<br>기능성 식품위주 제품으로 구성 </p>
-      <div class="grid grid-cols-2 gap-2 md:gap-4 mt-20 md:mt-12 anim-target">
-        <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_1.jpg" alt="제품 이미지 1" class="rounded-full img-responsive-3xl object-cover h-auto rounded-lg shadow-lg anim-target">
+        <div class="flex items-center justify-center mb-4 md:mb-10 pt-8 md:pt-16 anim-target">
+          <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow"
+            style="color: #C3DCFF;">가볍게! 맛있게! 제로하게!</p>
         </div>
         <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_2.jpg" alt="제품 이미지 2" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
-        </div>
-        <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12 anim-target">
-          <img src="./images/line_3.jpg" alt="제품 이미지 3" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
-        </div>
-        <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12 anim-target">
-          <img src="./images/line_4.jpg" alt="제품 이미지 4" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
-        </div>
-        <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_5.jpg" alt="제품 이미지 5" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
-        </div>
-        <div class="flex items-center justify-center anim-target">
-          <img src="./images/line_6.jpg" alt="제품 이미지 6" class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
+          <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow"
+            style="color: #C3DCFF;">현대인에게 가장 HOT한
+            제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Figma 선택 디자인(창업비용 표, 신규 가맹 혜택) -->
-  <section id="cost" class="w-full anim-target" style="background-color:#fff;">
-    <div class="max-w-6xl mx-auto text-center py-14 md:py-24 px-4 anim-target">
-      <h2 class="text-responsive-lg font-extrabold text-orange-600 mb-14 md:mb-4 anim-target">투자는 적게! 수익은
-        많게!<br>이름없는 제로인 창업비용</h2>
-      <div class="flex justify-center mt-6 md:mt-8 mb-6 md:mb-8 anim-target">
-        <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden bg-white w-full max-w-full anim-target">
-          <table class="min-w-full text-center border-2 table-bordered anim-target" style="border-color: #DBDBDB;">
-            <thead>
-              <tr class="main-bg-color anim-target">
-                <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 135px;">
-                  항목</th>
-                <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 110px;">
-                  점주가</th>
-                <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
-                  상세내용</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">가맹비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">400만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">30호점 이후 700만원<br>계약 종료 시 반환
-                </td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">물류보증금 /
-                  이행보증금</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">500만원(선택사항)</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">계약 종료 시 반환</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">교육비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">100만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">카톡 오픈채팅방을 통한 교육 진행</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">인테리어</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">1000만원~</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">가구 포함 / 기본 인테리어 기준</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">간판</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">180만원~</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">프리미엄 / 기본 플렉스 가격 상이</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">감리비/인테리어 컨셉
-                </td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">300만원(선택사항)</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">디자인 도면, 인테리어 시안 제공</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">홍보비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">100만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">오픈 이벤트, 현수막, 디자인 문구</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">초도비용</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">1300만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">공산품, 과일 및 야채 (선택사항)</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">키오스크</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">270만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">재고관리, 재고주문, 금액할인변경, 이벤트홍보, 회원가입
-                  및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">에어컨</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">350만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">길이나 상황에 따라 변동 가능</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">시설비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">550만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">냉동고, 냉장고, CCTV, 쇼케이스(선택사항),
-                  모니터, 부자재</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">로열티</td>
-                <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">2%</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">10호점 오픈 시 3개월 로열티 면제</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">주문 프로그램비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">1만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">본사 부담 / 전국 포인트 통합 시스템</td>
-              </tr>
-              <tr class="main-bg-color anim-target">
-                <td
-                  class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target">
-                  합계</td>
-                <td
-                  class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target"
-                  colspan="2">4,250만원 (VAT 별도, 선택사항 미포함)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
+    <nav class="max-w-full bg-gray-900 py-6 md:py-12 anim-target shadow" id="main-nav">
+      <div class="relative max-w-4xl mx-auto px-4 anim-target">
+        <ul class="grid grid-cols-4 gap-0 relative anim-target" id="nav-list">
+          <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center anim-target">
+            Why ZEROIN</li>
+          <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">특장점</li>
+          <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">제품라인</li>
+          <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">창업비용</li>
+        </ul>
+        <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300 anim-target"
+          style="bottom: -20px;"></div>
       </div>
-      <div class="relative flex items-center justify-between rounded-3xl border-4 shadow-lg px-6 py-8 mt-20 anim-target"
-        style="border-color:#FF6B0B; background-color:#F5F5F5;">
-        <!-- 상단 중앙 + 아이콘 -->
-        <div class="absolute left-1/2 anim-target" style="transform: translateX(-50%); top: -30px; z-index: 10;">
-          <img src="images/plus.png" alt="플러스" class="w-14 h-14 rounded-full shadow-lg border-1 border-white anim-target" />
-        </div>
-        <!-- 왼쪽 텍스트 -->
-        <div class="flex-1 flex flex-col justify-center items-start anim-target">
-          <span class="text-gray-500 text-responsive-xs mt-2 mb-2 font-semibold anim-target">신규 가맹 혜택</span>
-          <div class="text-responsive-sm font-bold text-gray-900 leading-relaxed text-left anim-target">
-            배송비 무료<br>
-            원터치 주문 시스템<br>
-            20호점 로얄티 3개월 면제
-          </div>
-        </div>
-        <!-- 오른쪽 선물상자 이미지 -->
-        <div class="flex items-center justify-center ml-8 anim-target" style="margin-right: -10px;">
-          <img src="images/gift.png" alt="선물상자" class="w-24 h-24 anim-target" />
-        </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Figma 선택 디자인(샵&샵 안내, 추천 카드) -->
-  <section class="w-full anim-target" style="background-color:#333333;">
-    <div class="max-w-6xl mx-auto text-center py-20 md:py-24 px-4 anim-target">
-      <h2 class="text-responsive-lg font-extrabold text-white mb-6 anim-target">부수입을 찾는 사장님이라면<br>이름없는 제로인 샵&샵으로!</h2>
-      <div class="flex justify-center mt-20 mb-8 anim-target">
-        <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden bg-white w-full max-w-full anim-target">
-          <table class="min-w-full text-center table-bordered  anim-target" style="border-color: #DBDBDB;">
-            <thead class="anim-target">
-              <tr class="main-bg-color anim-target">
-                <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 135px;">
-                  항목</th>
-                <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 110px;">
-                  점주가</th>
-                <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
-                  상세내용</th>
-              </tr>
-            </thead>
-            <tbody class="anim-target">
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">가맹비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">300만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">가구 포함 / 기본 인테리어 기준</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">물류보증금 / 이행보증금
-                </td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">계약 종료 시 반환</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">교육비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">카톡 오픈채팅방을 통한 교육 진행</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">인테리어</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">200만원(선택사항)</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">가구 포함 / 기본 인테리어 기준</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">간판</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">프리미엄 / 기본 플렉스 가격 상이</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">홍보비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">100만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">오픈 이벤트, 현수막, 디자인 문구</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">초도비용</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">400만원~</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">인기 있는 상품만 함축하여 진열</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">키오스크</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">270만원(선택사항)</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">재고관리, 재고주문, 금액할인변경, 이벤트홍보, 회원가입
-                  및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">에어컨</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">길이나 상황에 따라 변동 가능</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">시설비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">600만원(선택사항)</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">냉동고, 냉장고, CCTV, 쇼케이스(선택사항), 모니터,
-                  부자재</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">로열티</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">2%</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">10호점 오픈 시 3개월 로열티 면제</td>
-              </tr>
-              <tr class="anim-target">
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">주문 프로그램비</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">1만원</td>
-                <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">본사 부담 / 전국 포인트 통합 시스템</td>
-              </tr>
-              <tr class="main-bg-color anim-target">
-                <td
-                  class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target">
-                  합계</td>
-                <td
-                  class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target"
-                  colspan="2">700만원 (VAT 별도, 선택사항 미포함)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class=" p-2 mb-8 anim-target">
-        <div class="text-responsive-xl text-pink-100 mb-8 mt-8 font-bold anim-target">이런 사장님들에게 추천해요</div>
-        <div class="space-y-6 anim-target">
-          <div class="flex flex-row-reverse items-center bg-white rounded-lg shadow p-4 anim-target">
-            <img src="./images/money.png" alt="추가수익" class="w-14 h-14 ml-4 flex-shrink-0 object-contain"
-              style="aspect-ratio:1/1;">
-            <span class="text-gray-900 font-semibold text-left flex-1 text-responsive-sm anim-target">지금 운영하는 매장에서<br>추가 수익을 만들고 싶은
-              사장님</span>
+    <div class="main-content anim-target">
+      <!-- 주요 섹션 예시 (특장점) -->
+      <section id="feature" class="w-full anim-target" style="background-color:#FF6B0B;">
+        <div class="mx-auto text-center anim-target">
+          <h2 class="pt-28 md:py-12 text-responsive-sm text-white mb-4 anim-target">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸
+            실패없는 <span class="font-extrabold blue-bold anim-target">NEW
+              브랜드</span><br><span class="font-extrabold blue-bold anim-target">[이름없는 제로인]</span>을 런칭 했습니다.</h2>
+          <div class="flex justify-center mt-10 mb-12 md:mt-16 mb-8 md:mb-16 anim-target">
+            <svg width="1" height="100" viewBox="0 0 1 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="md:hidden anim-target">
+              <line x1="0.5" y1="0" x2="0.5" y2="50" stroke="white" />
+            </svg>
+            <svg width="200" height="1" viewBox="0 0 200 1" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="hidden md:block anim-target">
+              <line x1="0" y1="0.5" x2="200" y2="0.5" stroke="white" />
+            </svg>
           </div>
-          <div class="flex flex-row-reverse items-center bg-white rounded-lg shadow p-4 anim-target">
-            <img src="./images/health.png" alt="매출증가" class="w-14 h-14 ml-4 flex-shrink-0 object-contain"
-              style="aspect-ratio:1/1;">
-            <span class="text-gray-900 font-semibold text-left flex-1 text-responsive-sm anim-target">회원들의 동선 안에서 자연스럽게<br>매출을 올리고
-              싶은 사장님</span>
-          </div>
-          <div class="flex flex-row-reverse items-center bg-white rounded-lg shadow p-4 anim-target">
-            <img src="./images/thunder.png" alt="부수입" class="w-14 h-14 ml-4 flex-shrink-0 object-contain"
-              style="aspect-ratio:1/1;">
-            <span class="text-gray-900 font-semibold text-left flex-1 text-responsive-sm anim-target">인건비나 관리 부담 없이 자동으로<br>부수입을 만들고
-              싶은 사장님</span>
-          </div>
-        </div>
-      </div>
-      <div class="mt-18 anim-target">
-        <div class="relative flex flex-col items-center justify-center py-8 px-2 max-w-lg mx-auto anim-target">
-          <div class="absolute left-6 top-10 text-white potta-one anim-target" style="font-size:4rem; line-height:1;">"
-          </div>
-          <div class="absolute right-6 bottom-0 text-white potta-one flex items-end anim-target"
-            style="font-size:4rem; line-height:1; transform:translateY(10%);">"</div>
-          <div class="flex flex-col items-center justify-center anim-target">
-            <div class="text-white font-extrabold text-responsive-xl text-center leading-tight mb-2 anim-target"
-              style="margin-top:2.5rem;">
-              공간은 작게! 매출은 크게!
-            </div>
-            <div class="font-extrabold text-responsive-xl text-center leading-tight mb-2 anim-target" style="color:#FF6B0B;">
-              이름 없는 제로인 샵&샵<span class="text-white">,</span>
-            </div>
-            <div class="text-white font-extrabold text-responsive-xl text-center leading-tight mb-4 anim-target">
-              지금 바로 시작해 보세요!
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Figma 선택 디자인(가맹점 창업 프로세스) -->
-  <section class=" p-4 anim-target" style="background-color:#FFE2CE;">
-    <div class="max-w-2xl mx-auto text-center py-8 md:py-12 px-4 anim-target">
-      <h2 class="text-responsive-2xl font-extrabold text-gray-800 mb-20 mt-12 md:mb-10 anim-target">이름없는 제로인 가맹점<br>창업 프로세스</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10 mb-6 md:mb-10 anim-target">
-        <!-- STEP 01 -->
-        <div class="relative anim-target">
-          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target" style="background-color:#FFD9C0;">
-              STEP 01.</div>
-            <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
-              <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">상담신청</span><br>
-              <span class="font-semibold text-responsive-base anim-target">및 현장방문</span>
-            </div>
-          </div>
-          <!-- 화살표 SVG (모바일에서는 아래쪽, 데스크탑에서는 오른쪽) -->
-          <div class="flex justify-center md:hidden mt-2 anim-target">
-            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style="transform: rotate(90deg);">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
-            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-        </div>
-        <!-- STEP 02 -->
-        <div class="relative w-full anim-target">
-          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target" style="background-color:#FFC6A1;">
-              STEP 02.</div>
-            <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
-              <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">가맹계약</span><br>
-              <span class="font-semibold text-responsive-base anim-target">체결</span>
-            </div>
-          </div>
-          <div class="flex justify-center md:hidden mt-2 anim-target">
-            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style="transform: rotate(90deg);">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
-            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-        </div>
-        <!-- STEP 03 -->
-        <div class="relative w-full anim-target">
-          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target" style="background-color:#FFAE79;">
-              STEP 03.</div>
-            <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
-              <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">상권분석</span><br>
-              <span class="font-semibold text-responsive-base anim-target">및 점포선정</span>
-            </div>
-          </div>
-          <!-- 하방향 화살표 (모바일에서만 표시) -->
-          <div class="flex justify-center md:hidden mt-2 anim-target">
-            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style="transform: rotate(90deg);">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <!-- 2행 -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10 anim-target">
-        <!-- STEP 04 -->
-        <div class="relative w-full anim-target">
-          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target" style="background-color:#FFA468;">
-              STEP 04.</div>
-            <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
-              <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">매장공사</span><br>
-              <span class="font-semibold text-responsive-base anim-target">및 장비설치</span>
-            </div>
-          </div>
-          <div class="flex justify-center md:hidden mt-2 anim-target">
-            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style="transform: rotate(90deg);">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
-            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-        </div>
-        <!-- STEP 05 -->
-        <div class="relative w-full anim-target">
-          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target" style="background-color:#FF893C;">
-              STEP 05.</div>
-            <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
-              <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">교육진행</span><br>
-              <span class="font-semibold text-responsive-base anim-target">및 상품진열</span>
-            </div>
-          </div>
-          <div class="flex justify-center md:hidden mt-2 anim-target">
-            <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
-              style="transform: rotate(90deg);">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-          <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
-            <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
-                fill="#333333" fill-opacity="0.5" />
-            </svg>
-          </div>
-        </div>
-        <!-- STEP 06 -->
-        <div class="relative w-full anim-target">
-          <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
-            <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target" style="background-color:#FF6400;">
-              STEP 06.</div>
-            <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
-              <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">GRAND
-                OPEN</span><br>
-              <span class="font-semibold text-responsive-base anim-target">및 협동 매출 관리</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <p class="text-responsive-sm text-white anim-target">24시 무인 [이름없는 과일가게]에 이어서</p>
+          <p class="text-responsive-2xl  text-white font-bold anim-target">제 2의 브랜드</p>
+          <p class="text-responsive-3xl text-white font-extrabold blue-bold anim-target">[이름없는 제로인]</p>
+          <p class="text-responsive-3xl text-white font-extrabold blue-bold pb-20 anim-target">
+            <img src="./images/why-zero-logo.png" class="mx-auto anim-target" style="height: 105px;" alt="브랜드 이미지">
+          </p>
 
-  <!-- Figma 선택 디자인(상담 신청 폼) -->
-  <section id="contact" class="w-full anim-target" style="background-color:#f8f8f8;">
-    <div class="max-w-2xl mx-auto text-center py-20 md:py-40 px-4 anim-target">
-      <h2 class="text-responsive-xl font-extrabold text-gray-800 mb-4 md:mb-6 anim-target">자세한 내용을 듣고 싶으시다면?<br>지금 바로 상담받아보세요!</h2>
-      <img src="./images/chat-chat.png" alt="상담 이미지"
-        class="mx-auto my-10 md:my-6 rounded-lg img-responsive-3xl object-cover anim-target">
-      <form class="space-y-3 md:space-y-4 mt-6 md:mt-8 anim-target">
-        <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">성함<span
-              class="text-red-500">*</span></label>
-          <input type="text" name="name" required placeholder="성함 입력"
-            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
         </div>
-        <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">연락처<span
-              class="text-red-500">*</span></label>
-          <input type="text" name="phone" required placeholder="숫자만(-제외)"
-            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
-        </div>
-        <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">이메일<span
-              class="text-red-500">*</span></label>
-          <input type="email" name="email" required placeholder="이메일 주소 입력"
-            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
-        </div>
-        <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">가맹 희망 지역<span
-              class="text-red-500">*</span></label>
-          <input type="text" name="region" required placeholder="희망 지역 입력 [예) 서울시 마포구]"
-            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
-        </div>
-        <div class="text-left">
-          <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">알게된 경로</label>
-          <input type="text" name="source" placeholder="알게된 경로 입력"
-            class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
-        </div>
-        <div class="text-right text-responsive-xs text-red-500 anim-target">*필수 입력</div>
-        <div class="flex items-center justify-between mt-2 p-3 anim-target">
-          <div class="flex items-center anim-target">
-            <input type="checkbox" id="agree" required class="mr-3 w-4 h-4 md:w-5 md:h-5 border-gray-400 rounded anim-target">
-            <label for="agree" class="text-gray-700 text-responsive-sm font-medium anim-target">(필수) 개인정보 수집 이용 동의</label>
+      </section>
+
+      <!-- WHY ZEROIN? -->
+      <section id="why" class="w-full bg-gray-800 py-16 md:py-32 anim-target">
+        <div class="max-w-6xl mx-auto text-center px-6 anim-target">
+          <h2 class="text-responsive-xl font-extrabold text-white mb-16 md:mb-32 anim-target">WHY ZEROIN?<br>왜
+            이름없는 제로인을 선택할까요?</h2>
+          <div class="grid grid-cols-1 gap-8 md:gap-6 anim-target">
+            <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
+              <span class="font-bold orange-bold text-responsive-sm anim-target">Point 1</span>
+              <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
+                  class="font-bold orange-bold anim-target">아무 상품</span>만 진열하지 않아요</h3>
+              <p class="text-gray-600 text-responsive-sm anim-target">순환되는 확실한 상품만 상권에 맞춰 진열</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
+              <span class="font-bold orange-bold text-responsive-sm anim-target">Point 2</span>
+              <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
+                  class="font-bold orange-bold anim-target">특허까지</span></h3>
+              <p class="text-gray-600 text-responsive-sm anim-target">수많은 시행착오를 통한 편리한 원터치 주문시스템</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
+              <span class="font-bold orange-bold text-responsive-sm anim-target">Point 3</span>
+              <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
+                  class="font-bold orange-bold anim-target">재무제표</span></h3>
+              <p class="text-gray-600 text-responsive-sm anim-target">꾸준히 지속적으로 성장하고 있는 것을 지표로 증명</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
+              <span class="font-bold orange-bold text-responsive-sm anim-target">Point 4</span>
+              <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
+                  class="font-bold orange-bold anim-target">제대로 된 상권</span>을 찾아드려요</h3>
+              <p class="text-gray-600 text-responsive-sm anim-target">노하우를 기반으로 딱 맞는 상권 지역을 선정</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
+              <span class="font-bold orange-bold text-responsive-sm anim-target">Point 5</span>
+              <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
+                  class="font-bold orange-bold anim-target">과일, 샐러드 판매 가능</span></h3>
+              <p class="text-gray-600 text-responsive-sm anim-target">제로 상품뿐만 아니라 MZ들이 선호하는<br>요즘 인기 과일, 야채샐러드, 컵과일 판매
+                가능</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 md:p-6 text-left shadow anim-target">
+              <span class="font-bold orange-bold text-responsive-sm anim-target">Point 6</span>
+              <h3 class="text-responsive-lg font-bold mt-2 mb-2 anim-target"><span
+                  class="font-bold orange-bold anim-target">전국 통합 포인트 </span> 서비스</h3>
+              <p class="text-gray-600 text-responsive-sm anim-target">전국 어디든 제로인이라면 포인트 적립 및 결제 가능</p>
+            </div>
           </div>
-          <button type="button" onclick="openPrivacyDialog()" class="text-gray-500 hover:text-gray-700 transition anim-target">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
         </div>
-        <button type="submit"
-          class="w-full bg-gray-800 text-white font-bold p-4 md:p-8 rounded-lg mt-4 hover:bg-gray-900 transition text-responsive-sm anim-target">상담
-          신청하기</button>
-      </form>
+      </section>
+
+      <!-- Figma 선택 디자인(하단 WHY ZEROIN 장점 카드) -->
+      <section id="positive" class="w-full anim-target" style="background-color:#FF6B0B;">
+        <div class="max-w-6xl mx-auto text-center py-14 md:py-20 px-4 anim-target">
+          <h2 class="text-responsive-lg font-extrabold text-white mb-14 md:mb-24 anim-target">꼭 <span
+              class="font-bold blue-bold anim-target">이름없는 제로인</span>으로<br>시작해야만
+            하는 이유</h2>
+          <div class="grid grid-cols-2 gap-3 md:gap-6 anim-target">
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_1.png" alt="배송비 부담 제로"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">배송비 부담 제로!</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">배송비에 대한 부담을 줄여<br>최대한
+                수익만을 고려</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_2.png" alt="비수기 제로"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">비수기 제로!</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">계절성이 없고 늘 인기 있는<br>제품으로만
+                구성</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_3.png" alt="빠른 수익전환"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">빠른 수익전환</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">소비자들의 트렌드에 맞춰<br>적은
+                투자비용으로 빠른 수익</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_4.png" alt="누구나 손쉽게 운영"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">누구나 손쉽게 운영</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">주문 방식이 정말 쉽고<br>편하여 누구나
+                운영 가능</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_5.png" alt="시간 대비 최대 수익"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">시간 대비 최대 수익</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">하루 최대 2시간으로<br>본업 이상의 수익
+                창출 가능</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_6.png" alt="쉬운 주문 시스템"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">쉬운 주문 시스템</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">어디서든 핸드폰만 있으면<br>입고, 재고,
+                주문 모두 가능</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_7.png" alt="통합 포인트 서비스"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">통합 포인트 서비스</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">고객 유치를 위한 본사 지원,<br>전국 매장
+                통합 포인트 서비스</p>
+            </div>
+            <div
+              class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
+              <img src="./images/start_8.png" alt="다점포 관리 가능"
+                class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
+              <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">다점포 관리 가능</span>
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">관리가 쉬운 24시 무인가게로<br>다점포
+                관리도 편하게 가능</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma 선택 디자인(제로 시장 성장, 연령별 구매량 등) -->
+      <section class="w-full anim-target">
+        <div class="max-w-6xl mx-auto text-center py-14 md:py-24 px-4 anim-target">
+          <h2 class="text-responsive-lg font-extrabold text-gray-800 mb-14 md:mb-24 anim-target">계속 성장하는 제로
+            시장,<br>전년 대비 <span class="text-red-500">3배</span></span> 증가!</h2>
+          <img src="./images/chart.png" alt="제로 시장 성장 그래프"
+            class="mx-auto my-4 md:my-6 rounded-lg shadow-lg w-full h-auto anim-target">
+          <div class="mt-6 md:mt-8 mb-2 text-responsive-sm text-black font-medium anim-target">&lt;최근 1년간 나이대별 제로상품 구매량
+            추이&gt;</div>
+          <h2 class="text-responsive-lg font-extrabold text-gray-800 mb-10 md:mb-8 mt-28 md:mt-48 anim-target">이미
+            준비된 이름없는 제로인과<br>함께 성장해보세요!</h2>
+          <div class="flex justify-center mt-10 anim-target w-full">
+            <div class="w-full shadow p-6 md:p-9 flex flex-col items-center justify-center anim-target"
+              style="width: 100%; background-color: #FFF8F3;">
+              <img src="./images/certification-new.png" alt="인증서" class="w-full h-auto anim-target">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma 선택 디자인(제품 라인업, 원형 이미지 카드 등) -->
+      <section id="product" class="w-full anim-target" style="background-color:#333333;">
+        <div class="max-w-3xl mx-auto text-center py-20 md:py-24 px-4 anim-target">
+          <h2 class="text-responsive-xl font-extrabold text-white mb-6 md:mb-4 anim-target">이름없는 제로인만의 <br>차별화한
+            제품라인</h2>
+          <p class="text-responsive-sm font-semibold text-white mb-6 md:mb-8 anim-target">제로, 저칼로리, 저당, 무가당,<br>기능성 식품위주
+            제품으로 구성 </p>
+          <div class="grid grid-cols-2 gap-2 md:gap-4 mt-20 md:mt-12 anim-target">
+            <div class="flex items-center justify-center anim-target">
+              <img src="./images/line_1.jpg" alt="제품 이미지 1"
+                class="rounded-full img-responsive-3xl object-cover h-auto rounded-lg shadow-lg anim-target">
+            </div>
+            <div class="flex items-center justify-center anim-target">
+              <img src="./images/line_2.jpg" alt="제품 이미지 2"
+                class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
+            </div>
+            <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12 anim-target">
+              <img src="./images/line_3.jpg" alt="제품 이미지 3"
+                class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
+            </div>
+            <div class="flex items-center justify-center mt-6 md:mt-12 mb-6 md:mb-12 anim-target">
+              <img src="./images/line_4.jpg" alt="제품 이미지 4"
+                class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
+            </div>
+            <div class="flex items-center justify-center anim-target">
+              <img src="./images/line_5.jpg" alt="제품 이미지 5"
+                class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
+            </div>
+            <div class="flex items-center justify-center anim-target">
+              <img src="./images/line_6.jpg" alt="제품 이미지 6"
+                class="rounded-full img-responsive-3xl object-coverw-full h-auto rounded-lg shadow-lg anim-target">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma 선택 디자인(창업비용 표, 신규 가맹 혜택) -->
+      <section id="cost" class="w-full anim-target" style="background-color:#fff;">
+        <div class="max-w-6xl mx-auto text-center py-14 md:py-24 px-4 anim-target">
+          <h2 class="text-responsive-lg font-extrabold text-orange-600 mb-14 md:mb-4 anim-target">투자는 적게! 수익은
+            많게!<br>이름없는 제로인 창업비용</h2>
+          <div class="flex justify-center mt-6 md:mt-8 mb-6 md:mb-8 anim-target">
+            <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden bg-white w-full max-w-full anim-target">
+              <table class="min-w-full text-center border-2 table-bordered anim-target" style="border-color: #DBDBDB;">
+                <thead>
+                  <tr class="main-bg-color anim-target">
+                    <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target"
+                      style="min-width: 135px;">
+                      항목</th>
+                    <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target"
+                      style="min-width: 110px;">
+                      점주가</th>
+                    <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
+                      상세내용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      가맹비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">400만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">30호점 이후
+                      700만원<br>계약 종료 시 반환
+                    </td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      물류보증금 /
+                      이행보증금</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">500만원(선택사항)</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">계약 종료 시 반환</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      교육비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">100만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">카톡 오픈채팅방을 통한 교육
+                      진행</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      인테리어</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">1000만원~</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">가구 포함 / 기본 인테리어
+                      기준</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      간판</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">180만원~</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">프리미엄 / 기본 플렉스 가격
+                      상이</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      감리비/인테리어 컨셉
+                    </td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">300만원(선택사항)</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">디자인 도면, 인테리어 시안
+                      제공</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      홍보비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">100만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">오픈 이벤트, 현수막, 디자인
+                      문구</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      초도비용</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">1300만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">공산품, 과일 및 야채
+                      (선택사항)</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      키오스크</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">270만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">재고관리, 재고주문,
+                      금액할인변경, 이벤트홍보, 회원가입
+                      및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      에어컨</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">350만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">길이나 상황에 따라 변동 가능
+                    </td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      시설비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">550만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">냉동고, 냉장고, CCTV,
+                      쇼케이스(선택사항),
+                      모니터, 부자재</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4  text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      로열티</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4  text-gray-800 text-responsive-xs anim-target">2%</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">10호점 오픈 시 3개월
+                      로열티 면제</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      주문 프로그램비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">1만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">본사 부담 / 전국 포인트
+                      통합 시스템</td>
+                  </tr>
+                  <tr class="main-bg-color anim-target">
+                    <td class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target">
+                      합계</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target"
+                      colspan="2">4,250만원 (VAT 별도, 선택사항 미포함)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="relative flex items-center justify-between rounded-3xl border-4 shadow-lg px-6 py-8 mt-20 anim-target"
+            style="border-color:#FF6B0B; background-color:#F5F5F5;">
+            <!-- 상단 중앙 + 아이콘 -->
+            <div class="absolute left-1/2 anim-target" style="transform: translateX(-50%); top: -30px; z-index: 10;">
+              <img src="images/plus.png" alt="플러스"
+                class="w-14 h-14 rounded-full shadow-lg border-1 border-white anim-target" />
+            </div>
+            <!-- 왼쪽 텍스트 -->
+            <div class="flex-1 flex flex-col justify-center items-start anim-target">
+              <span class="text-gray-500 text-responsive-xs mt-2 mb-2 font-semibold anim-target">신규 가맹 혜택</span>
+              <div class="text-responsive-sm font-bold text-gray-900 leading-relaxed text-left anim-target">
+                배송비 무료<br>
+                원터치 주문 시스템<br>
+                20호점 로얄티 3개월 면제
+              </div>
+            </div>
+            <!-- 오른쪽 선물상자 이미지 -->
+            <div class="flex items-center justify-center ml-8 anim-target" style="margin-right: -10px;">
+              <img src="images/gift.png" alt="선물상자" class="w-24 h-24 anim-target" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma 선택 디자인(샵&샵 안내, 추천 카드) -->
+      <section class="w-full anim-target" style="background-color:#333333;">
+        <div class="max-w-6xl mx-auto text-center py-20 md:py-24 px-4 anim-target">
+          <h2 class="text-responsive-lg font-extrabold text-white mb-6 anim-target">부수입을 찾는 사장님이라면<br>이름없는 제로인 샵&샵으로!
+          </h2>
+          <div class="flex justify-center mt-20 mb-8 anim-target">
+            <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden bg-white w-full max-w-full anim-target">
+              <table class="min-w-full text-center table-bordered  anim-target" style="border-color: #DBDBDB;">
+                <thead class="anim-target">
+                  <tr class="main-bg-color anim-target">
+                    <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target"
+                      style="min-width: 135px;">
+                      항목</th>
+                    <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target"
+                      style="min-width: 110px;">
+                      점주가</th>
+                    <th class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
+                      상세내용</th>
+                  </tr>
+                </thead>
+                <tbody class="anim-target">
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      가맹비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">300만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">가구 포함 / 기본 인테리어
+                      기준</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      물류보증금 / 이행보증금
+                    </td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">계약 종료 시 반환</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      교육비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">카톡 오픈채팅방을 통한 교육
+                      진행</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      인테리어</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">200만원(선택사항)</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">가구 포함 / 기본 인테리어
+                      기준</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      간판</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">프리미엄 / 기본 플렉스 가격
+                      상이</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      홍보비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">100만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">오픈 이벤트, 현수막, 디자인
+                      문구</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      초도비용</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">400만원~</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">인기 있는 상품만 함축하여
+                      진열</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      키오스크</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">270만원(선택사항)</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">재고관리, 재고주문,
+                      금액할인변경, 이벤트홍보, 회원가입
+                      및 적립<br>키오스크 포인트 만원 구매시 0.01%</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      에어컨</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">0만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">길이나 상황에 따라 변동 가능
+                    </td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      시설비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">600만원(선택사항)</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">냉동고, 냉장고, CCTV,
+                      쇼케이스(선택사항), 모니터,
+                      부자재</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      로열티</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">2%</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">10호점 오픈 시 3개월
+                      로열티 면제</td>
+                  </tr>
+                  <tr class="anim-target">
+                    <td
+                      class="px-2 md:px-6 py-2 md:py-4 text-gray-800 main-bg-color-light text-responsive-xs anim-target">
+                      주문 프로그램비</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-800 text-responsive-xs anim-target">1만원</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 text-gray-700 text-responsive-xxs anim-target">본사 부담 / 전국 포인트
+                      통합 시스템</td>
+                  </tr>
+                  <tr class="main-bg-color anim-target">
+                    <td class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target">
+                      합계</td>
+                    <td class="px-2 md:px-6 py-2 md:py-4 font-extrabold text-white text-responsive-xs anim-target"
+                      colspan="2">700만원 (VAT 별도, 선택사항 미포함)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class=" p-2 mb-8 anim-target">
+            <div class="text-responsive-xl text-pink-100 mb-8 mt-8 font-bold anim-target">이런 사장님들에게 추천해요</div>
+            <div class="space-y-6 anim-target">
+              <div class="flex flex-row-reverse items-center bg-white rounded-lg shadow p-4 anim-target">
+                <img src="./images/money.png" alt="추가수익" class="w-14 h-14 ml-4 flex-shrink-0 object-contain"
+                  style="aspect-ratio:1/1;">
+                <span class="text-gray-900 font-semibold text-left flex-1 text-responsive-sm anim-target">지금 운영하는
+                  매장에서<br>추가 수익을 만들고 싶은
+                  사장님</span>
+              </div>
+              <div class="flex flex-row-reverse items-center bg-white rounded-lg shadow p-4 anim-target">
+                <img src="./images/health.png" alt="매출증가" class="w-14 h-14 ml-4 flex-shrink-0 object-contain"
+                  style="aspect-ratio:1/1;">
+                <span class="text-gray-900 font-semibold text-left flex-1 text-responsive-sm anim-target">회원들의 동선 안에서
+                  자연스럽게<br>매출을 올리고
+                  싶은 사장님</span>
+              </div>
+              <div class="flex flex-row-reverse items-center bg-white rounded-lg shadow p-4 anim-target">
+                <img src="./images/thunder.png" alt="부수입" class="w-14 h-14 ml-4 flex-shrink-0 object-contain"
+                  style="aspect-ratio:1/1;">
+                <span class="text-gray-900 font-semibold text-left flex-1 text-responsive-sm anim-target">인건비나 관리 부담 없이
+                  자동으로<br>부수입을 만들고
+                  싶은 사장님</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-18 anim-target">
+            <div class="relative flex flex-col items-center justify-center py-8 px-2 max-w-lg mx-auto anim-target">
+              <div class="absolute left-10 top-14 md:left-5 md:top-7 text-white anim-target">
+                <svg class="quote-svg" width="20" height="16" viewBox="0 0 20 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.34381 13.888C7.63981 14.656 6.85581 15.104 5.99181 15.232C5.12781 15.328 4.27981 15.184 3.44781 14.8C2.64781 14.384 1.95981 13.792 1.38381 13.024C0.807813 12.192 0.439813 11.232 0.279813 10.144C0.119813 9.024 0.295813 7.824 0.807813 6.544C1.35181 5.232 2.31181 4.032 3.68781 2.944C5.09581 1.824 6.77581 1.056 8.72781 0.639997C9.07981 0.575998 9.31981 0.559999 9.44781 0.591998C9.57581 0.623998 9.65581 0.671998 9.68781 0.735999C9.68781 1.024 9.59181 1.232 9.39981 1.36C8.59981 1.808 7.92781 2.368 7.38381 3.04C6.83981 3.712 6.50381 4.368 6.37581 5.008C6.24781 5.616 6.39181 6.064 6.80781 6.352C6.93581 6.448 7.23981 6.72 7.71981 7.168C8.19981 7.584 8.64781 8.144 9.06381 8.848C9.47981 9.52 9.67181 10.288 9.63981 11.152C9.63981 12.016 9.20781 12.928 8.34381 13.888ZM18.4238 13.888C17.7198 14.656 16.9358 15.104 16.0718 15.232C15.2078 15.328 14.3598 15.184 13.5278 14.8C12.7278 14.384 12.0398 13.792 11.4638 13.024C10.8878 12.192 10.5198 11.232 10.3598 10.144C10.1998 9.024 10.3758 7.824 10.8878 6.544C11.4318 5.232 12.3918 4.032 13.7678 2.944C15.1758 1.824 16.8558 1.056 18.8078 0.639997C19.1598 0.575998 19.3998 0.559999 19.5278 0.591998C19.6558 0.623998 19.7358 0.671998 19.7678 0.735999C19.7678 1.024 19.6718 1.232 19.4798 1.36C18.6798 1.808 18.0078 2.368 17.4638 3.04C16.9198 3.712 16.5838 4.368 16.4558 5.008C16.3278 5.616 16.4718 6.064 16.8878 6.352C17.0158 6.448 17.3198 6.72 17.7998 7.168C18.2798 7.584 18.7278 8.144 19.1438 8.848C19.5598 9.52 19.7518 10.288 19.7198 11.152C19.7198 12.016 19.2878 12.928 18.4238 13.888Z"
+                    fill="white" />
+                </svg>
+              </div>
+              <div class="absolute md:right-6 md:bottom-0 right-12 bottom-9 text-white flex items-end anim-target"
+                style="transform:translateY(10%);">
+                <svg class="quote-svg-right" width="21" height="16" viewBox="0 0 21 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.1558 1.936C12.8598 1.168 13.6438 0.735998 14.5078 0.639997C15.3718 0.511997 16.2198 0.639997 17.0518 1.024C17.8838 1.408 18.5718 2 19.1158 2.8C19.6918 3.6 20.0598 4.56 20.2198 5.68C20.3798 6.8 20.2038 8 19.6918 9.28C19.1478 10.592 18.1718 11.808 16.7638 12.928C15.3878 14.016 13.7238 14.768 11.7718 15.184C11.4198 15.248 11.1798 15.264 11.0518 15.232C10.9238 15.2 10.8438 15.152 10.8118 15.088C10.8118 14.8 10.9078 14.592 11.0998 14.464C11.9318 14.016 12.6038 13.456 13.1158 12.784C13.6598 12.08 13.9958 11.424 14.1238 10.816C14.2518 10.176 14.1078 9.712 13.6918 9.424C13.5638 9.328 13.2598 9.072 12.7798 8.656C12.2998 8.208 11.8518 7.648 11.4358 6.976C11.0198 6.304 10.8118 5.536 10.8118 4.672C10.8438 3.808 11.2918 2.896 12.1558 1.936ZM2.07581 1.936C2.77981 1.168 3.56381 0.735998 4.42781 0.639997C5.29181 0.511997 6.13981 0.639997 6.97181 1.024C7.80381 1.408 8.49181 2 9.03581 2.8C9.61181 3.6 9.97981 4.56 10.1398 5.68C10.2998 6.8 10.1238 8 9.61181 9.28C9.06781 10.592 8.09181 11.808 6.68381 12.928C5.30781 14.016 3.64381 14.768 1.69181 15.184C1.33981 15.248 1.09981 15.264 0.971813 15.232C0.843813 15.2 0.763813 15.152 0.731813 15.088C0.731813 14.8 0.827813 14.592 1.01981 14.464C1.85181 14.016 2.52381 13.456 3.03581 12.784C3.57981 12.08 3.91581 11.424 4.04381 10.816C4.17181 10.176 4.02781 9.712 3.61181 9.424C3.48381 9.328 3.17981 9.072 2.69981 8.656C2.21981 8.208 1.77181 7.648 1.35581 6.976C0.939813 6.304 0.731813 5.536 0.731813 4.672C0.763813 3.808 1.21181 2.896 2.07581 1.936Z"
+                    fill="white" />
+                </svg>
+              </div>
+              <div class="flex flex-col items-center justify-center anim-target">
+                <div class="text-white font-extrabold text-responsive-xl text-center leading-tight mb-2 anim-target"
+                  style="margin-top:2.5rem;">
+                  공간은 작게! 매출은 크게!
+                </div>
+                <div class="font-extrabold text-responsive-xl text-center leading-tight mb-2 anim-target"
+                  style="color:#FF6B0B;">
+                  이름 없는 제로인 샵&샵<span class="text-white">,</span>
+                </div>
+                <div class="text-white font-extrabold text-responsive-xl text-center leading-tight mb-4 anim-target">
+                  지금 바로 시작해 보세요!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma 선택 디자인(가맹점 창업 프로세스) -->
+      <section class=" p-4 anim-target" style="background-color:#FFE2CE;">
+        <div class="max-w-2xl mx-auto text-center py-8 md:py-12 px-4 anim-target">
+          <h2 class="text-responsive-2xl font-extrabold text-gray-800 mb-20 mt-12 md:mb-10 anim-target">이름없는 제로인
+            가맹점<br>창업 프로세스</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10 mb-6 md:mb-10 anim-target">
+            <!-- STEP 01 -->
+            <div class="relative anim-target">
+              <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target"
+                  style="background-color:#FFD9C0;">
+                  STEP 01.</div>
+                <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
+                  <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">상담신청</span><br>
+                  <span class="font-semibold text-responsive-base anim-target">및 현장방문</span>
+                </div>
+              </div>
+              <!-- 화살표 SVG (모바일에서는 아래쪽, 데스크탑에서는 오른쪽) -->
+              <div class="flex justify-center md:hidden mt-2 anim-target">
+                <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(90deg);">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+              <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
+                <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+            </div>
+            <!-- STEP 02 -->
+            <div class="relative w-full anim-target">
+              <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target"
+                  style="background-color:#FFC6A1;">
+                  STEP 02.</div>
+                <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
+                  <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">가맹계약</span><br>
+                  <span class="font-semibold text-responsive-base anim-target">체결</span>
+                </div>
+              </div>
+              <div class="flex justify-center md:hidden mt-2 anim-target">
+                <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(90deg);">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+              <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
+                <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+            </div>
+            <!-- STEP 03 -->
+            <div class="relative w-full anim-target">
+              <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target"
+                  style="background-color:#FFAE79;">
+                  STEP 03.</div>
+                <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
+                  <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">상권분석</span><br>
+                  <span class="font-semibold text-responsive-base anim-target">및 점포선정</span>
+                </div>
+              </div>
+              <!-- 하방향 화살표 (모바일에서만 표시) -->
+              <div class="flex justify-center md:hidden mt-2 anim-target">
+                <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(90deg);">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- 2행 -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10 anim-target">
+            <!-- STEP 04 -->
+            <div class="relative w-full anim-target">
+              <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target"
+                  style="background-color:#FFA468;">
+                  STEP 04.</div>
+                <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
+                  <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">매장공사</span><br>
+                  <span class="font-semibold text-responsive-base anim-target">및 장비설치</span>
+                </div>
+              </div>
+              <div class="flex justify-center md:hidden mt-2 anim-target">
+                <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(90deg);">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+              <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
+                <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+            </div>
+            <!-- STEP 05 -->
+            <div class="relative w-full anim-target">
+              <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target"
+                  style="background-color:#FF893C;">
+                  STEP 05.</div>
+                <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
+                  <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">교육진행</span><br>
+                  <span class="font-semibold text-responsive-base anim-target">및 상품진열</span>
+                </div>
+              </div>
+              <div class="flex justify-center md:hidden mt-2 anim-target">
+                <svg width="20" height="20" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(90deg);">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+              <div class="hidden md:flex items-center absolute top-1/2 -right-4 z-10 md:-right-8 anim-target">
+                <svg width="28" height="28" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M4.75781 8.44531L3.80859 7.50781L6.33984 4.97656H0.386719V3.59375H6.33984L3.80859 1.07422L4.75781 0.136719L8.91797 4.28516L4.75781 8.44531Z"
+                    fill="#333333" fill-opacity="0.5" />
+                </svg>
+              </div>
+            </div>
+            <!-- STEP 06 -->
+            <div class="relative w-full anim-target">
+              <div class="rounded-xl md:rounded-2xl shadow-lg overflow-hidden">
+                <div class="text-white font-extrabold text-responsive-sm py-2 md:py-4 anim-target"
+                  style="background-color:#FF6400;">
+                  STEP 06.</div>
+                <div class="bg-white text-gray-800 font-semibold text-responsive-base py-2 md:py-4 anim-target">
+                  <span class="font-extrabold text-responsive-base" style="color:#FF6B0B;">GRAND
+                    OPEN</span><br>
+                  <span class="font-semibold text-responsive-base anim-target">및 협동 매출 관리</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma 선택 디자인(상담 신청 폼) -->
+      <section id="contact" class="w-full anim-target" style="background-color:#f8f8f8;">
+        <div class="max-w-2xl mx-auto text-center py-20 md:py-40 px-4 anim-target">
+          <h2 class="text-responsive-xl font-extrabold text-gray-800 mb-4 md:mb-6 anim-target">자세한 내용을 듣고 싶으시다면?<br>지금
+            바로 상담받아보세요!</h2>
+          <img src="./images/chat-chat.png" alt="상담 이미지"
+            class="mx-auto my-10 md:my-6 rounded-lg img-responsive-3xl object-cover anim-target">
+          <form class="space-y-3 md:space-y-4 mt-6 md:mt-8 anim-target">
+            <div class="text-left">
+              <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">성함<span
+                  class="text-red-500">*</span></label>
+              <input type="text" name="name" required placeholder="성함 입력"
+                class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
+            </div>
+            <div class="text-left">
+              <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">연락처<span
+                  class="text-red-500">*</span></label>
+              <input type="text" name="phone" required placeholder="숫자만(-제외)"
+                class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
+            </div>
+            <div class="text-left">
+              <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">이메일<span
+                  class="text-red-500">*</span></label>
+              <input type="email" name="email" required placeholder="이메일 주소 입력"
+                class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
+            </div>
+            <div class="text-left">
+              <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">가맹 희망 지역<span
+                  class="text-red-500">*</span></label>
+              <input type="text" name="region" required placeholder="희망 지역 입력 [예) 서울시 마포구]"
+                class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
+            </div>
+            <div class="text-left">
+              <label class="block text-gray-700 font-medium mb-1 text-responsive-sm anim-target">알게된 경로</label>
+              <input type="text" name="source" placeholder="알게된 경로 입력"
+                class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white text-responsive-sm anim-target" />
+            </div>
+            <div class="text-right text-responsive-xs text-red-500 anim-target">*필수 입력</div>
+            <div class="flex items-center justify-between mt-2 p-3 anim-target">
+              <div class="flex items-center anim-target">
+                <input type="checkbox" id="agree" required
+                  class="mr-3 w-4 h-4 md:w-5 md:h-5 border-gray-400 rounded anim-target">
+                <label for="agree" class="text-gray-700 text-responsive-sm font-medium anim-target">(필수) 개인정보 수집 이용
+                  동의</label>
+              </div>
+              <button type="button" onclick="openPrivacyDialog()"
+                class="text-gray-500 hover:text-gray-700 transition anim-target">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+            <button type="submit"
+              class="w-full bg-gray-800 text-white font-bold p-4 md:p-8 rounded-lg mt-4 hover:bg-gray-900 transition text-responsive-sm anim-target">상담
+              신청하기</button>
+          </form>
+        </div>
+      </section>
     </div>
-  </section>
-  </div>
   </div>
 
   <!-- section, .bg-white, .rounded-2xl, .rounded-3xl, .shadow-lg, img, h1, h2, h3, p, .card, .feature-card, .why-zeroin-title -->
