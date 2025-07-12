@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>이름없는 제로인</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Potta+One" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
@@ -74,7 +76,7 @@
 
     /* 반응형 텍스트 크기 클래스 */
     .text-responsive-xxs {
-      font-size: 0.6rem;
+      font-size: 0.51rem;
       /* 12px */
     }
 
@@ -338,7 +340,12 @@
 
     .potta-one {
       font-family: 'Potta One', cursive;
+      font-weight: 400;
+      font-display: swap;
     }
+    
+    /* Potta One 폰트 확실히 로드하기 */
+    @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
 
     .custom-title {
       font-size: 2.4375rem;
@@ -389,15 +396,10 @@
   <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-5 md:py-4 px-4 anim-target">
     <div class="flex items-center anim-target">
       <!-- 로고 (원형 + 포인트 점) -->
-      <div class="relative w-8 h-8 md:w-12 md:h-12 flex items-center justify-center mr-2 md:mr-3 anim-target">
-        <div class="w-8 h-8 md:w-12 md:h-12 bg-gray-900 rounded-full flex items-center justify-center anim-target">
-          <div class="w-3 h-3 md:w-5 md:h-5 bg-white rounded-full anim-target"></div>
-        </div>
-        <div
-          class="absolute bottom-0.5 right-0.5 md:bottom-1 md:right-1 w-3 h-3 md:w-5 md:h-5 bg-orange-500 rounded-full border-2 md:border-4 border-white anim-target">
-        </div>
+      <div class="w-24 h-8 md:w-48 md:h-12 flex items-center justify-center mr-2 md:mr-3 anim-target">
+        <img src="./images/zero-logo.png" alt="제로스토어" class="w-[00px] anim-target">
       </div>
-      <span class="text-responsive-2xl  font-extrabold text-gray-900 anim-target">제로스토어</span>
+      
     </div>
     <a href="#contact"
       class="text-white font-semibold text-responsive-sm px-4 py-2 md:px-8 md:py-3 rounded-xl md:rounded-2xl shadow-lg transition text-center anim-target"
@@ -411,15 +413,15 @@
     <div class="relative w-full h-full z-10 p-10 md:p-20 lg:p-40 mb-10 md:mb-20 lg:mb-40 anim-target">
       <div class="flex items-center justify-center pb-6 md:pb-10 pt-20 md:pt-40 lg:pt-80 anim-target">
         <h1 class="relative z-50 font-bold text-center anim-target leading-tight why-zeroin-title pulse-text custom-title"
-          style="color: #4945FB;">
+          style="color: #fff;">
           칼로리 0%!<br>죄책감 0%!<br>창업성공률 100%
         </h1>
       </div>
       <div class="flex items-center justify-center mb-4 md:mb-10 pt-8 md:pt-16 anim-target">
-        <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow">가볍게! 맛있게! 제로하게!</p>
+        <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow" style="color: #C3DCFF;">가볍게! 맛있게! 제로하게!</p>
       </div>
       <div class="flex items-center justify-center anim-target">
-        <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow">현대인에게 가장 HOT한
+        <p class="text-responsive-sm font-semibold text-white text-center anim-target pulse-text-slow" style="color: #C3DCFF;">현대인에게 가장 HOT한
           제로,저당,다이어트!<br>창업을 원터치로 손쉽게 관리!!
         </p>
       </div>
@@ -520,52 +522,52 @@
         하는 이유</h2>
       <div class="grid grid-cols-2 gap-3 md:gap-6 anim-target">
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/thunder.png" alt="배송비 부담 제로"
+          <img src="./images/start_1.png" alt="배송비 부담 제로"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
           <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">배송비 부담 제로!</span>
           <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">배송비에 대한 부담을 줄여<br>최대한 수익만을 고려</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/health.png" alt="비수기 제로"
+          <img src="./images/start_2.png" alt="비수기 제로"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
           <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">비수기 제로!</span>
           <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">계절성이 없고 늘 인기 있는<br>제품으로만 구성</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/money.png" alt="빠른 수익전환"
+          <img src="./images/start_3.png" alt="빠른 수익전환"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
           <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">빠른 수익전환</span>
           <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">소비자들의 트렌드에 맞춰<br>적은 투자비용으로 빠른 수익</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/chat-chat.png" alt="누구나 손쉽게 운영"
+          <img src="./images/start_4.png" alt="누구나 손쉽게 운영"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
           <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">누구나 손쉽게 운영</span>
           <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">주문 방식이 정말 쉽고<br>편하여 누구나 운영 가능</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/certification.png" alt="시간 대비 최대 수익"
+          <img src="./images/start_5.png" alt="시간 대비 최대 수익"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
           <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">시간 대비 최대 수익</span>
           <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">하루 최대 2시간으로<br>본업 이상의 수익 창출 가능</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_8.png" alt="엄청난 특가혜택"
+          <img src="./images/start_6.png" alt="쉬운 주문 시스템"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">엄청난 특가혜택</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">수시로 이루어지는<br>특가혜택이 그득</p>
+          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">쉬운 주문 시스템</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">어디서든 핸드폰만 있으면<br>입고, 재고, 주문 모두 가능</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_7.png" alt="높은 재구매율"
+          <img src="./images/start_7.png" alt="통합 포인트 서비스"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">높은 재구매율</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">고객들이 일부러 다시<br>찾아오는 곳이 제로인</p>
+          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">통합 포인트 서비스</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">고객 유치를 위한 본사 지원,<br>전국 매장 통합 포인트 서비스</p>
         </div>
         <div class="bg-white rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center shadow mb-2 md:mb-4 anim-target">
-          <img src="./images/start_6.png" alt="바로 수익 실현"
+          <img src="./images/start_8.png" alt="다점포 관리 가능"
             class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
-          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">바로 수익 실현</span>
-          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">오픈 하자마자<br>바로 수익을 확인</p>
+          <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">다점포 관리 가능</span>
+          <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">관리가 쉬운 24시 무인가게로<br>다점포 관리도 편하게 가능</p>
         </div>
       </div>
     </div>
@@ -575,16 +577,15 @@
   <section class="w-full anim-target">
     <div class="max-w-6xl mx-auto text-center py-14 md:py-24 px-4 anim-target">
       <h2 class="text-responsive-lg font-extrabold text-gray-800 mb-14 md:mb-24 anim-target">계속 성장하는 제로
-        시장,<br>전년 대비 3배 증가!</h2>
-      <img src="./images/graph.png" alt="제로 시장 성장 그래프" class="mx-auto my-4 md:my-6 rounded-lg shadow-lg w-full h-auto anim-target">
+        시장,<br>전년 대비 <span class="text-red-500">3배</span></span> 증가!</h2>
+      <img src="./images/chart.png" alt="제로 시장 성장 그래프" class="mx-auto my-4 md:my-6 rounded-lg shadow-lg w-full h-auto anim-target">
       <div class="mt-6 md:mt-8 mb-2 text-responsive-sm text-black font-medium anim-target">&lt;최근 1년간 나이대별 제로상품 구매량 추이&gt;</div>
       <h2 class="text-responsive-lg font-extrabold text-gray-800 mb-10 md:mb-8 mt-28 md:mt-48 anim-target">이미
         준비된 이름없는 제로인과<br>함께 성장해보세요!</h2>
-      <div class="flex flex-wrap justify-center mt-4 anim-target">
-        <div class="bg-white rounded-lg shadow p-6 md:p-9 flex flex-col items-center justify-center anim-target"
-          style="max-width: 150px; width: 100%;">
-          <img src="./images/start_1.png" alt="셀프 과일가게" class="img-responsive-xl mb-4 anim-target">
-          <span class="text-responsive-xs font-semibold text-gray-800 text-center anim-target">셀프 과일가게</span>
+      <div class="flex justify-center mt-10 anim-target w-full">
+        <div class="w-full shadow p-6 md:p-9 flex flex-col items-center justify-center anim-target"
+          style="width: 100%; background-color: #FFF8F3;">
+          <img src="./images/certification-new.png" alt="인증서" class="w-full h-auto anim-target">
         </div>
       </div>
     </div>
@@ -630,10 +631,10 @@
             <thead>
               <tr class="main-bg-color anim-target">
                 <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
+                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 135px;">
                   항목</th>
                 <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
+                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 110px;">
                   점주가</th>
                 <th
                   class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
@@ -756,10 +757,10 @@
             <thead class="anim-target">
               <tr class="main-bg-color anim-target">
                 <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
+                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 135px;">
                   항목</th>
                 <th
-                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
+                  class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target" style="min-width: 110px;">
                   점주가</th>
                 <th
                   class="px-2 md:px-6 py-2 md:py-4 text-white font-extrabold text-responsive-xs anim-target">
