@@ -7,28 +7,9 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>이름없는 제로인</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Potta+One:wght@400&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    // Potta One 폰트 로드 확인
-    document.addEventListener('DOMContentLoaded', function () {
-      // 폰트 로드 체크
-      document.fonts.ready.then(function () {
-        console.log('폰트 로드 완료');
-        // Potta One 폰트가 로드되었는지 확인
-        if (document.fonts.check('1em "Potta One"')) {
-          console.log('Potta One 폰트 로드됨');
-        } else {
-          console.log('Potta One 폰트 로드 실패');
-        }
-      });
-    });
-  </script>
   <style>
     html,
     body {
@@ -439,7 +420,7 @@
   </style>
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="text-gray-900" style="background-color:#FF6B0B;">
   <div class="page-wrapper">
     <!-- 헤더: 로고 + 텍스트 + 창업문의 버튼 -->
     <header class="flex items-center justify-between w-full max-w-4xl mx-auto py-5 md:py-4 px-4 anim-target">
@@ -447,14 +428,14 @@
         <!-- 로고 (원형 + 포인트 점) -->
         <div class="w-24 h-8 md:w-48 md:h-12 flex items-center justify-center mr-2 md:mr-3 anim-target">
           <a href="/">
-            <img src="./images/zero-logo.png" alt="제로스토어" class="w-[00px] anim-target"></a>
+<img src="./images/zero-logo.png" alt="제로스토어" class="w-[00px] anim-target"></a>
           </a>
         </div>
 
       </div>
       <a href="#contact"
-        class="text-white font-semibold text-responsive-sm px-4 py-2 md:px-8 md:py-3 rounded-xl md:rounded-2xl shadow-lg transition text-center anim-target"
-        style="background-color:#FF5500;">창업문의</a>
+        class="text-black font-semibold text-responsive-sm px-4 py-2 md:px-8 md:py-3 rounded-xl md:rounded-2xl shadow-lg transition text-center anim-target"
+        style="background-color:#FFF;">창업문의</a>
     </header>
 
     <!-- 상단 배너 (Figma 선택 영역 반영) -->
@@ -616,7 +597,7 @@
               <img src="./images/start_5.png" alt="시간 대비 최대 수익"
                 class="object-cover mb-3 md:mb-5 mt-2 md:mt-5 img-responsive-lg anim-target" />
               <span class="text-responsive-sm font-extrabold text-gray-900 mb-1 md:mb-2 anim-target">시간 대비 최대 수익</span>
-              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">하루 최대 2시간으로<br>본업 이상의 수익
+              <p class="text-responsive-xs text-gray-700 mb-1 md:mb-2 text-center anim-target">일주일에 두 번 2시간으로<br>본업 이상의 수익
                 창출 가능</p>
             </div>
             <div
