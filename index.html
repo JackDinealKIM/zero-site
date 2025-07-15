@@ -628,12 +628,13 @@
     <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
     <nav class="max-w-full bg-gray-900 py-6 md:py-12 anim-target shadow" id="main-nav">
       <div class="relative max-w-4xl mx-auto px-4 anim-target">
-        <ul class="grid grid-cols-4 gap-0 relative anim-target" id="nav-list">
+        <ul class="grid grid-cols-5 gap-0 relative anim-target" id="nav-list">
           <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center anim-target">
             Why ZEROIN</li>
           <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">특장점</li>
           <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">제품라인</li>
           <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">창업비용</li>
+          <li id="nav-faq" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">FAQ</li>
         </ul>
         <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300 anim-target"
           style="bottom: -20px;"></div>
@@ -1358,6 +1359,122 @@
         </div>
       </section>
 
+      <!-- FAQ 섹션 -->
+      <section id="faq" class="w-full py-16 md:py-24 anim-target" style="background-color:#fff;">
+        <div class="max-w-4xl mx-auto px-4 anim-target">
+          <h2 class="text-responsive-xl font-extrabold text-center mb-12 md:mb-16 anim-target" style="color:#333;">자주 묻는 질문</h2>
+          
+          <div class="space-y-4 md:space-y-6 anim-target">
+            <!-- FAQ 항목 1 -->
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden anim-target">
+              <button class="w-full px-6 py-4 md:px-8 md:py-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-400 faq-toggle anim-target" 
+                      style="background-color:#FFF8F3;">
+                <div class="flex items-center justify-between anim-target">
+                  <h3 class="text-responsive-sm font-bold anim-target" style="color:#FF6B0B;">이름없는 제로인 가맹비는 얼마인가요?</h3>
+                  <svg class="w-5 h-5 transform transition-transform duration-200 faq-icon anim-target" style="color:#FF6B0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-content px-6 py-0 md:px-8 overflow-hidden transition-all duration-300 max-h-0 anim-target">
+                <div class="pt-4 pb-4 md:pt-6 md:pb-6 anim-target">
+                  <p class="text-responsive-xs text-gray-700 leading-relaxed anim-target">
+                    가맹비는 <span class="font-semibold text-orange-600">400만원</span>이며, 30호점 이후는 700만원입니다. 
+                    계약 종료 시 반환되어 부담을 덜어드립니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 항목 2 -->
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden anim-target">
+              <button class="w-full px-6 py-4 md:px-8 md:py-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-400 faq-toggle anim-target" 
+                      style="background-color:#FFF8F3;">
+                <div class="flex items-center justify-between anim-target">
+                  <h3 class="text-responsive-sm font-bold anim-target" style="color:#FF6B0B;">창업에 필요한 총 비용은 얼마인가요?</h3>
+                  <svg class="w-5 h-5 transform transition-transform duration-200 faq-icon anim-target" style="color:#FF6B0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-content px-6 py-0 md:px-8 overflow-hidden transition-all duration-300 max-h-0 anim-target">
+                <div class="pt-4 pb-4 md:pt-6 md:pb-6 anim-target">
+                  <p class="text-responsive-xs text-gray-700 leading-relaxed anim-target">
+                    총 <span class="font-semibold text-orange-600">4,250만원</span>(VAT별도, 선택사항 미포함)이 필요합니다. 
+                    가맹비, 인테리어, 시설비, 초도비용 등이 포함되며, 선택사항에 따라 조정 가능합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 항목 3 -->
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden anim-target">
+              <button class="w-full px-6 py-4 md:px-8 md:py-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-400 faq-toggle anim-target" 
+                      style="background-color:#FFF8F3;">
+                <div class="flex items-center justify-between anim-target">
+                  <h3 class="text-responsive-sm font-bold anim-target" style="color:#FF6B0B;">상담 가능 시간은 언제인가요?</h3>
+                  <svg class="w-5 h-5 transform transition-transform duration-200 faq-icon anim-target" style="color:#FF6B0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-content px-6 py-0 md:px-8 overflow-hidden transition-all duration-300 max-h-0 anim-target">
+                <div class="pt-4 pb-4 md:pt-6 md:pb-6 anim-target">
+                  <p class="text-responsive-xs text-gray-700 leading-relaxed anim-target">
+                    평일 <span class="font-semibold text-orange-600">오전 9시부터 오후 6시</span>까지 상담 가능합니다. 
+                    전화(<a href="tel:02-1666-2188" class="text-blue-600 hover:text-blue-800 underline">02-1666-2188</a>) 또는 
+                    이메일(<a href="mailto:nonamefruit0521@naver.com" class="text-blue-600 hover:text-blue-800 underline">nonamefruit0521@naver.com</a>)로 문의하세요.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 항목 4 -->
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden anim-target">
+              <button class="w-full px-6 py-4 md:px-8 md:py-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-400 faq-toggle anim-target" 
+                      style="background-color:#FFF8F3;">
+                <div class="flex items-center justify-between anim-target">
+                  <h3 class="text-responsive-sm font-bold anim-target" style="color:#FF6B0B;">무인매장 운영은 어떻게 하나요?</h3>
+                  <svg class="w-5 h-5 transform transition-transform duration-200 faq-icon anim-target" style="color:#FF6B0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-content px-6 py-0 md:px-8 overflow-hidden transition-all duration-300 max-h-0 anim-target">
+                <div class="pt-4 pb-4 md:pt-6 md:pb-6 anim-target">
+                  <p class="text-responsive-xs text-gray-700 leading-relaxed anim-target">
+                    <span class="font-semibold text-orange-600">24시간 무인 운영</span>이 가능하며, 원터치 주문 시스템으로 누구나 쉽게 관리할 수 있습니다. 
+                    일주일에 두 번, 2시간 정도만 투자하면 본업 이상의 수익 창출이 가능합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 항목 5 -->
+            <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden anim-target">
+              <button class="w-full px-6 py-4 md:px-8 md:py-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-400 faq-toggle anim-target" 
+                      style="background-color:#FFF8F3;">
+                <div class="flex items-center justify-between anim-target">
+                  <h3 class="text-responsive-sm font-bold anim-target" style="color:#FF6B0B;">샵&샵과 일반 가맹점의 차이점은 무엇인가요?</h3>
+                  <svg class="w-5 h-5 transform transition-transform duration-200 faq-icon anim-target" style="color:#FF6B0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </button>
+              <div class="faq-content px-6 py-0 md:px-8 overflow-hidden transition-all duration-300 max-h-0 anim-target">
+                <div class="pt-4 pb-4 md:pt-6 md:pb-6 anim-target">
+                  <p class="text-responsive-xs text-gray-700 leading-relaxed anim-target">
+                    샵&샵은 <span class="font-semibold text-orange-600">기존 매장 내 추가 설치</span>하는 형태로, 
+                    가맹비 300만원으로 낮은 초기 투자비용과 기존 고객층 활용이 가능합니다. 
+                    일반 가맹점은 독립 매장으로 더 큰 규모와 높은 수익성을 기대할 수 있습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Figma 선택 디자인(상담 신청 폼) -->
       <section id="contact" class="w-full anim-target" style="background-color:#f8f8f8;">
         <div class="max-w-2xl mx-auto text-center py-20 md:py-40 px-4 anim-target">
@@ -1578,8 +1695,8 @@
       });
 
       // 네비게이션 바 이동
-      var sectionIds = ['feature', 'positive', 'product', 'cost'];
-      var navIds = ['#nav-why', '#nav-feature', '#nav-product', '#nav-cost'];
+      var sectionIds = ['feature', 'positive', 'product', 'cost', 'faq'];
+      var navIds = ['#nav-why', '#nav-feature', '#nav-product', '#nav-cost', '#nav-faq'];
       var $navBar = $('#nav-bar');
       var $navList = $('#nav-list');
 
@@ -1630,6 +1747,25 @@
             $('html, body').animate({ scrollTop: target.offset().top - 60 }, 600);
           }
         });
+      });
+    });
+
+    // FAQ 아코디언 기능
+    $(document).ready(function() {
+      $('.faq-toggle').click(function() {
+        const $content = $(this).next('.faq-content');
+        const $icon = $(this).find('.faq-icon');
+        const isOpen = $content.hasClass('active');
+        
+        // 모든 FAQ 항목 닫기
+        $('.faq-content').removeClass('active').css('max-height', '0');
+        $('.faq-icon').removeClass('rotate-180');
+        
+        // 클릭된 항목이 닫혀있다면 열기
+        if (!isOpen) {
+          $content.addClass('active').css('max-height', $content[0].scrollHeight + 'px');
+          $icon.addClass('rotate-180');
+        }
       });
     });
   </script>
