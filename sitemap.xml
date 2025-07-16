@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- 메인 페이지 -->
   <url>
-    <loc>https://zero-in.co.kr/</loc>
+    <loc>https://zer0in.co.kr/</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,42 +10,42 @@
   
   <!-- 주요 섹션들 (앵커 링크) -->
   <url>
-    <loc>https://zero-in.co.kr/#why</loc>
+    <loc>https://zer0in.co.kr/#why</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://zero-in.co.kr/#feature</loc>
+    <loc>https://zer0in.co.kr/#feature</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://zero-in.co.kr/#product</loc>
+    <loc>https://zer0in.co.kr/#product</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://zero-in.co.kr/#cost</loc>
+    <loc>https://zer0in.co.kr/#cost</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://zero-in.co.kr/#faq</loc>
+    <loc>https://zer0in.co.kr/#faq</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://zero-in.co.kr/#contact</loc>
+    <loc>https://zer0in.co.kr/#contact</loc>
     <lastmod>2025-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

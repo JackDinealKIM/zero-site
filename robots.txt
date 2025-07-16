@@ -1,4 +1,4 @@
-# robots.txt for zero-in.co.kr
+# robots.txt for zer0in.co.kr
 # 이름없는 제로인 - 제로칼로리 무인매장 가맹점
 
 # 모든 검색엔진 크롤러 허용
@@ -21,7 +21,7 @@ Allow: /
 Crawl-delay: 1
 
 # 사이트맵 위치
-Sitemap: https://zero-in.co.kr/sitemap.xml
+Sitemap: https://zer0in.co.kr/sitemap.xml
 
 # 호스트 명시 (선택사항)
-Host: zero-in.co.kr 
+Host: zer0in.co.kr
