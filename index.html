@@ -1625,7 +1625,7 @@
 </footer>
 
 <!-- Floating 상담 신청하기 버튼 -->
-<div class="fixed bottom-6 right-6 z-50 group">
+<div id="floating-consultation-btn" class="fixed bottom-6 right-6 z-50 group">
   <a href="#contact"
      class="hidden inline-flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-4 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-white"
      style="background: linear-gradient(135deg, #FF6B0B 0%, #FF8533 100%);">
@@ -1834,15 +1834,21 @@
 
   // 상담신청하기 버튼 표시/숨김 제어
   $(document).ready(function() {
-    var floatingBtn = $('.fixed.bottom-6.right-6');
-    console.log('플로팅 버튼 제어 시스템 활성화');
+    var floatingBtn = $('#floating-consultation-btn a');
+    console.log('플로팅 버튼 제어 시스템 활성화, 버튼 개수:', floatingBtn.length);
     
     function checkWhyZeroinSection() {
       var whySection = $('#why');
+      console.log('WHY 섹션 찾기:', whySection.length);
+      
       if (whySection.length) {
         var whySectionTop = whySection.offset().top;
         var scrollTop = $(window).scrollTop();
         var windowHeight = $(window).height();
+        
+        console.log('WHY 섹션 위치:', whySectionTop, '현재 스크롤:', scrollTop, '화면 높이:', windowHeight);
+        console.log('조건 확인:', scrollTop + windowHeight, '>=', whySectionTop, '?', (scrollTop + windowHeight >= whySectionTop));
+        console.log('버튼 숨김 상태:', floatingBtn.hasClass('hidden'));
         
         // WHY ZEROIN? 섹션이 화면에 나타나면 플로팅 버튼 표시
         if (scrollTop + windowHeight >= whySectionTop) {
@@ -1858,6 +1864,8 @@
             console.log('플로팅 버튼 숨김');
           }
         }
+      } else {
+        console.log('WHY 섹션을 찾을 수 없음');
       }
     }
     
