@@ -211,7 +211,7 @@
       z-index: 1000;
       width: 100%;
       background-color: rgb(17, 24, 39);
-      transition: all 0.3s ease;
+      /* transition 제거 - 빠른 스크롤 시 충돌 방지 */
     }
 
     /* 네비게이션이 fixed될 때의 스타일 */
@@ -675,7 +675,7 @@
     <!-- 주요 섹션 예시 (특장점) -->
     <section id="feature" class="w-full anim-target" style="background-color:#FF6B0B;">
       <div class="mx-auto text-center anim-target">
-        <h2 class="pt-28 md:py-12 text-responsive-sm text-white mb-4 anim-target">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸
+        <h2 class="pt-28 md:py-24 text-responsive-sm text-white mb-4 anim-target">24시간 무인가게의 수많은 시행착오를<br>바탕으로 만들어낸
           실패없는 <span class="font-extrabold blue-bold anim-target">NEW
               브랜드</span><br><span class="font-extrabold blue-bold anim-target">[이름없는 제로인]</span>을 런칭 했습니다.</h2>
         <div class="flex justify-center mt-10 mb-12 md:mt-16 mb-8 md:mb-16 anim-target">
@@ -1876,16 +1876,19 @@
     }, 100);
   });
 
-  // 스크롤할 때 네비게이션이 상단에 붙는 sticky 동작 (떨림 방지 개선)
+  // 스크롤할 때 네비게이션이 상단에 붙는 sticky 동작 (안드로이드 빠른 스크롤 최적화)
   $(document).ready(function() {
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    console.log('네비게이션 sticky 시스템 활성화' + (isIOS ? ' (iOS 최적화 모드)' : ''));
+    var isAndroid = /Android/.test(navigator.userAgent);
+    console.log('네비게이션 sticky 시스템 활성화' + (isIOS ? ' (iOS 최적화)' : isAndroid ? ' (Android 최적화)' : ''));
     
     var nav = $('#main-nav');
     var navHeight = nav.outerHeight();
     var originalStickyStartPoint = nav.offset().top; // 원본 위치를 한 번만 저장
     var isFixed = false;
     var hysteresis = 10; // 떨림 방지를 위한 여유값
+    var isScrolling = false;
+    var animationFrameId = null;
     
     console.log('원본 sticky 시작점:', originalStickyStartPoint);
     
@@ -1896,8 +1899,8 @@
       if (currentScroll >= originalStickyStartPoint && !isFixed) {
         nav.addClass('nav-fixed');
         
-        // iOS에서 추가 보정
-        if (isIOS) {
+        // iOS/Android에서 추가 보정
+        if (isIOS || isAndroid) {
           nav.css({
             'position': 'fixed',
             'top': '0px',
@@ -1906,7 +1909,8 @@
             'width': '100%',
             'z-index': '1000',
             'transform': 'translate3d(0, 0, 0)',
-            '-webkit-transform': 'translate3d(0, 0, 0)'
+            '-webkit-transform': 'translate3d(0, 0, 0)',
+            'will-change': 'transform'
           });
         }
         
@@ -1921,8 +1925,8 @@
       } else if (currentScroll < (originalStickyStartPoint - hysteresis) && isFixed) {
         nav.removeClass('nav-fixed');
         
-        // iOS에서 추가 보정
-        if (isIOS) {
+        // iOS/Android에서 추가 보정
+        if (isIOS || isAndroid) {
           nav.css({
             'position': 'relative',
             'top': 'auto',
@@ -1930,7 +1934,8 @@
             'right': 'auto',
             'width': '100%',
             'transform': 'none',
-            '-webkit-transform': 'none'
+            '-webkit-transform': 'none',
+            'will-change': 'auto'
           });
         }
         
@@ -1938,16 +1943,42 @@
         isFixed = false;
         console.log('네비게이션 원래 상태로 복원 (스크롤:', currentScroll + ')');
       }
+      
+      isScrolling = false;
+      animationFrameId = null;
     }
     
-    // 스크롤 이벤트 연결 (throttled)
-    var scrollTimeout;
-    $(window).on('scroll', function() {
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
+    // requestAnimationFrame을 사용한 최적화된 스크롤 처리
+    function onScroll() {
+      if (!isScrolling) {
+        isScrolling = true;
+        
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        
+        animationFrameId = requestAnimationFrame(handleStickyNav);
       }
-      scrollTimeout = setTimeout(handleStickyNav, 10);
-    });
+    }
+    
+    // 스크롤 이벤트 연결 (requestAnimationFrame 사용)
+    $(window).on('scroll', onScroll);
+    
+    // 안드로이드 터치 이벤트 추가 처리
+    if (isAndroid) {
+      $(window).on('touchmove', function() {
+        onScroll();
+      });
+      
+      $(window).on('touchend', function() {
+        // 터치 끝난 후 한번 더 체크 (momentum scrolling 대응)
+        setTimeout(function() {
+          if (!isScrolling) {
+            handleStickyNav();
+          }
+        }, 100);
+      });
+    }
     
     // 리사이즈 이벤트 처리 (원본 위치는 변경하지 않음)
     $(window).on('resize', function() {
