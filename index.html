@@ -181,8 +181,7 @@
     html,
     body {
       font-family: 'Pretendard Variable', sans-serif;
-      width: 100vw;
-      max-width: 100vw;
+      width: 100%;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -191,7 +190,7 @@
 
     /* body의 overflow는 별도로 제어 */
     body {
-      overflow-x: hidden !important;
+      overflow-x: hidden;
       overflow-y: auto;
     }
 
@@ -206,32 +205,43 @@
       }
     }
 
-    /* 네비게이션 sticky 스타일 */
+    /* 네비게이션 기본 스타일 */
     nav[id="main-nav"] {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
+      position: relative;
       z-index: 1000;
       width: 100%;
       background-color: rgb(17, 24, 39);
-      /* bg-gray-900 */
       transition: all 0.3s ease;
-      -webkit-transform: translateZ(0);
+    }
+
+    /* 네비게이션이 fixed될 때의 스타일 */
+    nav[id="main-nav"].nav-fixed {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 1000 !important;
+      width: 100% !important;
       transform: translateZ(0);
+      -webkit-transform: translateZ(0);
       will-change: transform;
     }
 
-    /* iOS Safari 전용 sticky 보완 */
+    /* iOS Safari 전용 강화 */
     @supports (-webkit-touch-callout: none) {
-      nav[id="main-nav"] {
-        position: -webkit-sticky !important;
-        position: sticky !important;
+      nav[id="main-nav"].nav-fixed {
+        position: fixed !important;
         top: 0 !important;
-        z-index: 1000 !important;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        transform: translate3d(0, 0, 0) !important;
       }
     }
 
@@ -643,22 +653,24 @@
       </div>
     </div>
   </section>
+</div>
 
-  <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
-  <nav class="max-w-full bg-gray-900 py-6 md:py-12 shadow" id="main-nav">
-    <div class="relative max-w-4xl mx-auto px-4">
-      <ul class="grid grid-cols-5 gap-0 relative" id="nav-list">
-        <li id="nav-why" class="text-white cursor-pointer text-responsive-xs text-center">Why ZEROIN</li>
-        <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center">특장점</li>
-        <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center">제품라인</li>
-        <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center">창업비용</li>
-        <li id="nav-faq" class="text-gray-400 cursor-pointer text-responsive-xs text-center">FAQ</li>
-      </ul>
-      <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300"
-           style="bottom: -20px;"></div>
-    </div>
-  </nav>
+<!-- 네비게이션: page-wrapper 밖으로 이동하여 sticky 문제 해결 -->
+<nav class="max-w-full bg-gray-900 py-6 md:py-12 shadow" id="main-nav">
+  <div class="relative max-w-4xl mx-auto px-4">
+    <ul class="grid grid-cols-5 gap-0 relative" id="nav-list">
+      <li id="nav-why" class="text-white cursor-pointer text-responsive-xs text-center">Why ZEROIN</li>
+      <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center">특장점</li>
+      <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center">제품라인</li>
+      <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center">창업비용</li>
+      <li id="nav-faq" class="text-gray-400 cursor-pointer text-responsive-xs text-center">FAQ</li>
+    </ul>
+    <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300"
+         style="bottom: -20px;"></div>
+  </div>
+</nav>
 
+<div class="page-wrapper">
   <div class="main-content anim-target">
     <!-- 주요 섹션 예시 (특장점) -->
     <section id="feature" class="w-full anim-target" style="background-color:#FF6B0B;">
@@ -1822,6 +1834,9 @@
 
   // 상담신청하기 버튼 표시/숨김 제어
   $(document).ready(function() {
+    var floatingBtn = $('.fixed.bottom-6.right-6');
+    console.log('플로팅 버튼 제어 시스템 활성화');
+    
     function checkWhyZeroinSection() {
       var whySection = $('#why');
       if (whySection.length) {
@@ -1829,22 +1844,130 @@
         var scrollTop = $(window).scrollTop();
         var windowHeight = $(window).height();
         
-        // WHY ZEROIN? 섹션이 화면에 나타나면 플로팅 버튼만 표시
+        // WHY ZEROIN? 섹션이 화면에 나타나면 플로팅 버튼 표시
         if (scrollTop + windowHeight >= whySectionTop) {
-          $('.fixed.bottom-6.right-6').fadeIn(500);
+          if (floatingBtn.hasClass('hidden')) {
+            floatingBtn.removeClass('hidden').hide().fadeIn(500);
+            console.log('플로팅 버튼 표시');
+          }
         } 
-        // WHY ZEROIN? 섹션 위쪽으로 스크롤하면 플로팅 버튼만 숨김
+        // WHY ZEROIN? 섹션 위쪽으로 스크롤하면 플로팅 버튼 숨김
         else if (scrollTop + windowHeight < whySectionTop) {
-          $('.fixed.bottom-6.right-6').hide();
+          if (!floatingBtn.hasClass('hidden')) {
+            floatingBtn.addClass('hidden');
+            console.log('플로팅 버튼 숨김');
+          }
         }
       }
     }
     
-    // 스크롤 이벤트 리스너 추가
-    $(window).on('scroll', checkWhyZeroinSection);
+    // 스크롤 이벤트 리스너 추가 (throttled)
+    var scrollTimeout;
+    $(window).on('scroll', function() {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = setTimeout(checkWhyZeroinSection, 10);
+    });
     
     // 페이지 로드 시 한 번 체크
-    checkWhyZeroinSection();
+    setTimeout(function() {
+      checkWhyZeroinSection();
+    }, 100);
+  });
+
+  // 스크롤할 때 네비게이션이 상단에 붙는 sticky 동작 (떨림 방지 개선)
+  $(document).ready(function() {
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    console.log('네비게이션 sticky 시스템 활성화' + (isIOS ? ' (iOS 최적화 모드)' : ''));
+    
+    var nav = $('#main-nav');
+    var navHeight = nav.outerHeight();
+    var originalStickyStartPoint = nav.offset().top; // 원본 위치를 한 번만 저장
+    var isFixed = false;
+    var hysteresis = 10; // 떨림 방지를 위한 여유값
+    
+    console.log('원본 sticky 시작점:', originalStickyStartPoint);
+    
+    function handleStickyNav() {
+      var currentScroll = $(window).scrollTop();
+      
+      // 아래로 스크롤: 원본 위치에 도달하면 fixed 모드
+      if (currentScroll >= originalStickyStartPoint && !isFixed) {
+        nav.addClass('nav-fixed');
+        
+        // iOS에서 추가 보정
+        if (isIOS) {
+          nav.css({
+            'position': 'fixed',
+            'top': '0px',
+            'left': '0px',
+            'right': '0px',
+            'width': '100%',
+            'z-index': '1000',
+            'transform': 'translate3d(0, 0, 0)',
+            '-webkit-transform': 'translate3d(0, 0, 0)'
+          });
+        }
+        
+        // 빈 공간 방지용 spacer 추가
+        if ($('#nav-spacer').length === 0) {
+          nav.after('<div id="nav-spacer" style="height:' + navHeight + 'px; background-color: transparent;"></div>');
+        }
+        isFixed = true;
+        console.log('네비게이션 fixed 모드 활성화 (스크롤:', currentScroll + ')');
+        
+      // 위로 스크롤: 여유값을 둬서 떨림 방지
+      } else if (currentScroll < (originalStickyStartPoint - hysteresis) && isFixed) {
+        nav.removeClass('nav-fixed');
+        
+        // iOS에서 추가 보정
+        if (isIOS) {
+          nav.css({
+            'position': 'relative',
+            'top': 'auto',
+            'left': 'auto',
+            'right': 'auto',
+            'width': '100%',
+            'transform': 'none',
+            '-webkit-transform': 'none'
+          });
+        }
+        
+        $('#nav-spacer').remove();
+        isFixed = false;
+        console.log('네비게이션 원래 상태로 복원 (스크롤:', currentScroll + ')');
+      }
+    }
+    
+    // 스크롤 이벤트 연결 (throttled)
+    var scrollTimeout;
+    $(window).on('scroll', function() {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = setTimeout(handleStickyNav, 10);
+    });
+    
+    // 리사이즈 이벤트 처리 (원본 위치는 변경하지 않음)
+    $(window).on('resize', function() {
+      navHeight = nav.outerHeight();
+      if (isFixed && $('#nav-spacer').length > 0) {
+        $('#nav-spacer').css('height', navHeight + 'px');
+      }
+    });
+    
+    // 초기 체크 (원본 위치는 변경하지 않음)
+    setTimeout(function() {
+      handleStickyNav();
+    }, 100);
+    
+    // 페이지 로드 완료 후 다시 한번 체크
+    $(window).on('load', function() {
+      setTimeout(function() {
+        handleStickyNav();
+      }, 200);
+    });
   });
 </script>
 </body>
