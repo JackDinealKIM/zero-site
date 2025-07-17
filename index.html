@@ -634,8 +634,7 @@
   <nav class="max-w-full bg-gray-900 py-6 md:py-12 shadow" id="main-nav">
     <div class="relative max-w-4xl mx-auto px-4">
       <ul class="grid grid-cols-5 gap-0 relative" id="nav-list">
-        <li id="nav-why" class="text-white cursor-pointer text-responsive-xs text-center">
-          Why ZEROIN</li>
+        <li id="nav-why" class="text-white cursor-pointer text-responsive-xs text-center">Why ZEROIN</li>
         <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center">특장점</li>
         <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center">제품라인</li>
         <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center">창업비용</li>
@@ -1547,7 +1546,7 @@
          style="background-color: #FFECD6;"
          onclick="window.open('https://www.nonamefruit.com/default/', '_blank', 'noopener,noreferrer')">
   <div class="max-w-4xl mx-auto anim-target">
-    <div class="flex items-center justify-between p-6 md:p-8 anim-target">
+    <div class="flex items-center justify-between p-4 md:p-8 anim-target">
       <!-- 왼쪽 텍스트 -->
       <div class="flex-1 anim-target">
         <h3 class="text-responsive-sm font-semibold text-gray-800 mb-2 anim-target">
@@ -1559,7 +1558,7 @@
       </div>
 
       <!-- 오른쪽 버튼 -->
-      <div class="ml-6 anim-target">
+      <div class="anim-target">
         <a href="https://www.nonamefruit.com/default/"
            target="_blank"
            rel="noopener noreferrer"
@@ -1747,8 +1746,8 @@
       var width = $li.outerWidth();
 
       $navBar.css({ left: left + 'px', width: width + 'px' });
-      $(navIds.join(',')).removeClass('text-white font-semibold').addClass('text-gray-400');
-      $(navIds[idx]).removeClass('text-gray-400').addClass('text-white font-semibold');
+      $(navIds.join(',')).removeClass('text-white').addClass('text-gray-400');
+      $(navIds[idx]).removeClass('text-gray-400').addClass('text-white');
     }
 
     function getCurrentSection() {
