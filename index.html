@@ -1552,7 +1552,7 @@
            style="background-color: #FFECD6;" 
            onclick="window.open('https://www.nonamefruit.com/default/', '_blank', 'noopener,noreferrer')">
     <div class="max-w-4xl mx-auto ">
-      <div class="flex items-center justify-between p-4 md:p-8 ">
+      <div class="flex items-center justify-between p-3 md:p-8 ">
         <!-- 왼쪽 텍스트 -->
         <div class="flex-1 ">
           <h3 class="text-responsive-sm font-semibold text-gray-800 mb-2 ">
@@ -1564,11 +1564,11 @@
         </div>
         
         <!-- 오른쪽 버튼 -->
-        <div class=" ">
+        <div>
           <a href="https://www.nonamefruit.com/default/" 
              target="_blank" 
              rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 px-4 py-2 md:px-8 md:py-4 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg"
+             class="inline-flex items-center gap-2 px-3 py-2 md:px-8 md:py-4 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg"
              style="background-color: #FF6B0B;">
             <span class="text-responsive-sm">보러가기</span>
             <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1605,7 +1605,7 @@
   </footer>
 
   <!-- Floating 상담 신청하기 버튼 -->
-  <div class="fixed bottom-6 right-6 z-50 group">
+  <div id="floating-contact-btn" class="fixed bottom-6 right-6 z-50 group opacity-0 invisible transition-all duration-300">
     <a href="#contact" 
        class="inline-flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-4 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-white"
        style="background: linear-gradient(135deg, #FF6B0B 0%, #FF8533 100%);">
@@ -1712,6 +1712,19 @@
         }
       });
     }
+
+    // 플로팅 버튼 표시/숨김 함수
+    function toggleFloatingButton() {
+      var featureSectionTop = $('#feature').offset().top;
+      var scrollTop = $(window).scrollTop();
+      var $floatingBtn = $('#floating-contact-btn');
+      
+      if (scrollTop >= featureSectionTop - 100) {
+        $floatingBtn.removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+      } else {
+        $floatingBtn.removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+      }
+    }
     $(document).ready(function () {
       // 다양한 애니메이션 클래스를 주요 요소에 랜덤/순차적으로 부여
       var anims = ['fade-in', 'scale-in', 'slide-up', 'slide-left', 'slide-right'];
@@ -1725,7 +1738,11 @@
         }
       });
       fadeInOnScroll();
-      $(window).on('scroll', fadeInOnScroll);
+      toggleFloatingButton();
+      $(window).on('scroll', function() {
+        fadeInOnScroll();
+        toggleFloatingButton();
+      });
       // 부드러운 스크롤
       $('a[href^="#contact"]').on('click', function (e) {
         var target = $('#contact');
@@ -1781,6 +1798,7 @@
       $(window).on('resize', function () {
         var idx = getCurrentSection();
         moveBarTo(idx);
+        toggleFloatingButton();
       });
       // 메뉴 클릭 시 해당 섹션으로 이동
       navIds.forEach(function (sel, idx) {
