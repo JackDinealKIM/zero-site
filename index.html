@@ -634,7 +634,7 @@
   <nav class="max-w-full bg-gray-900 py-6 md:py-12 shadow" id="main-nav">
     <div class="relative max-w-4xl mx-auto px-4">
       <ul class="grid grid-cols-5 gap-0 relative" id="nav-list">
-        <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center">
+        <li id="nav-why" class="text-white cursor-pointer text-responsive-xs text-center">
           Why ZEROIN</li>
         <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center">특장점</li>
         <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center">제품라인</li>
@@ -1805,6 +1805,39 @@
         $icon.addClass('rotate-180');
       }
     });
+  });
+
+  // 상담신청하기 버튼 표시/숨김 제어
+  $(document).ready(function() {
+    // 초기에는 상담신청하기 버튼들을 숨김
+    $('a[href="#contact"]').hide();
+    $('.fixed.bottom-6.right-6').hide(); // 플로팅 버튼
+    
+    function checkWhyZeroinSection() {
+      var whySection = $('#why');
+      if (whySection.length) {
+        var whySectionTop = whySection.offset().top;
+        var scrollTop = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        
+        // WHY ZEROIN? 섹션이 화면에 나타나면 버튼들을 표시
+        if (scrollTop + windowHeight >= whySectionTop) {
+          $('a[href="#contact"]').fadeIn(500);
+          $('.fixed.bottom-6.right-6').fadeIn(500);
+        } 
+        // WHY ZEROIN? 섹션 위쪽으로 스크롤하면 버튼들을 숨김
+        else if (scrollTop + windowHeight < whySectionTop) {
+          $('a[href="#contact"]').hide();
+          $('.fixed.bottom-6.right-6').hide();
+        }
+      }
+    }
+    
+    // 스크롤 이벤트 리스너 추가
+    $(window).on('scroll', checkWhyZeroinSection);
+    
+    // 페이지 로드 시 한 번 체크
+    checkWhyZeroinSection();
   });
 </script>
 </body>
