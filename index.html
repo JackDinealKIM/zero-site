@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -195,23 +195,20 @@
       overflow-y: auto;
     }
 
-    /* 이미지와 테이블만 제한 */
-    img,
-    svg,
-    table {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* 전체 페이지 래퍼만 overflow 제어 */
-    .page-wrapper {
-      width: 100%;
-      max-width: 100vw;
-      position: relative;
+    /* iOS Safari 전용 수정 */
+    @supports (-webkit-touch-callout: none) {
+      html, body {
+        /*width: 100% !important;*/
+        /*max-width: 100% !important;*/
+        overflow-x: hidden !important;
+        /*-webkit-text-size-adjust: 100%;*/
+        /*-webkit-font-smoothing: antialiased;*/
+      }
     }
 
     /* 네비게이션 sticky 스타일 */
     nav[id="main-nav"] {
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -219,6 +216,23 @@
       background-color: rgb(17, 24, 39);
       /* bg-gray-900 */
       transition: all 0.3s ease;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    /* iOS Safari 전용 sticky 보완 */
+    @supports (-webkit-touch-callout: none) {
+      nav[id="main-nav"] {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
     }
 
     *,
@@ -1601,7 +1615,7 @@
 <!-- Floating 상담 신청하기 버튼 -->
 <div class="fixed bottom-6 right-6 z-50 group">
   <a href="#contact"
-     class="inline-flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-4 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-white"
+     class="hidden inline-flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-4 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-white"
      style="background: linear-gradient(135deg, #FF6B0B 0%, #FF8533 100%);">
     <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -1808,10 +1822,6 @@
 
   // 상담신청하기 버튼 표시/숨김 제어
   $(document).ready(function() {
-    // 초기에는 상담신청하기 버튼들을 숨김
-    $('a[href="#contact"]').hide();
-    $('.fixed.bottom-6.right-6').hide(); // 플로팅 버튼
-    
     function checkWhyZeroinSection() {
       var whySection = $('#why');
       if (whySection.length) {
@@ -1819,14 +1829,12 @@
         var scrollTop = $(window).scrollTop();
         var windowHeight = $(window).height();
         
-        // WHY ZEROIN? 섹션이 화면에 나타나면 버튼들을 표시
+        // WHY ZEROIN? 섹션이 화면에 나타나면 플로팅 버튼만 표시
         if (scrollTop + windowHeight >= whySectionTop) {
-          $('a[href="#contact"]').fadeIn(500);
           $('.fixed.bottom-6.right-6').fadeIn(500);
         } 
-        // WHY ZEROIN? 섹션 위쪽으로 스크롤하면 버튼들을 숨김
+        // WHY ZEROIN? 섹션 위쪽으로 스크롤하면 플로팅 버튼만 숨김
         else if (scrollTop + windowHeight < whySectionTop) {
-          $('a[href="#contact"]').hide();
           $('.fixed.bottom-6.right-6').hide();
         }
       }
