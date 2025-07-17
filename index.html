@@ -3,9 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -181,12 +180,12 @@
     html,
     body {
       font-family: 'Pretendard Variable', sans-serif;
-      width: 100vw;
-      max-width: 100vw;
+      width: 100%;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       position: relative;
+      overflow-x: hidden;
     }
 
     /* body의 overflow는 별도로 제어 */
@@ -206,8 +205,9 @@
     /* 전체 페이지 래퍼만 overflow 제어 */
     .page-wrapper {
       width: 100%;
-      max-width: 100vw;
+      max-width: 100%;
       position: relative;
+      overflow-x: hidden;
     }
 
     /* 네비게이션 sticky 스타일 */
@@ -225,6 +225,12 @@
     *::before,
     *::after {
       box-sizing: border-box;
+    }
+
+    /* 추가 뷰포트 안정성 보장 */
+    html {
+      overflow-x: hidden;
+      width: 100%;
     }
 
     .why-zeroin-title {
@@ -631,17 +637,16 @@
     </section>
 
     <!-- 네비게이션: 상단배너 하단에 고정(sticky) -->
-    <nav class="max-w-full bg-gray-900 py-6 md:py-12 anim-target shadow" id="main-nav">
-      <div class="relative max-w-4xl mx-auto px-4 anim-target">
-        <ul class="grid grid-cols-5 gap-0 relative anim-target" id="nav-list">
-          <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center anim-target">
-            Why ZEROIN</li>
-          <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">특장점</li>
-          <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">제품라인</li>
-          <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">창업비용</li>
-          <li id="nav-faq" class="text-gray-400 cursor-pointer text-responsive-xs text-center anim-target">FAQ</li>
+    <nav class="max-w-full bg-gray-900 py-6 md:py-12 shadow" id="main-nav">
+      <div class="relative max-w-4xl mx-auto px-4">
+        <ul class="grid grid-cols-5 gap-0 relative " id="nav-list">
+          <li id="nav-why" class="text-white font-semibold cursor-pointer text-responsive-xs text-center ">Why ZEROIN</li>
+          <li id="nav-feature" class="text-gray-400 cursor-pointer text-responsive-xs text-center ">특장점</li>
+          <li id="nav-product" class="text-gray-400 cursor-pointer text-responsive-xs text-center ">제품라인</li>
+          <li id="nav-cost" class="text-gray-400 cursor-pointer text-responsive-xs text-center ">창업비용</li>
+          <li id="nav-faq" class="text-gray-400 cursor-pointer text-responsive-xs text-center ">FAQ</li>
         </ul>
-        <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300 anim-target"
+        <div id="nav-bar" class="absolute h-1 bg-white rounded transition-all duration-300 "
           style="bottom: -20px;"></div>
       </div>
     </nav>
@@ -1576,17 +1581,17 @@
   </section>
 
   <!-- Footer -->
-  <footer class="w-full bg-white py-12 md:py-16 anim-target">
-    <div class="max-w-4xl mx-auto px-4 anim-target">
-      <div class="rounded-2xl p-4 md:p-8 anim-target">
-        <div class="space-y-3 md:space-y-4 text-gray-300 anim-target">
-          <div class="text-left anim-target">
-            <p class="text-responsive-sm font-semibold mb-2 anim-target" style="color:#525252;">상호 : 제로 인(Zer0 in)</p>
-            <p class="text-responsive-sm font-semibold anim-target" style="color:#525252;">주식회사 엔오엔에프컨설팅</p>
+  <footer class="w-full bg-white py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="rounded-2xl p-4 md:p-8">
+        <div class="space-y-3 md:space-y-4 text-gray-300">
+          <div class="text-left">
+            <p class="text-responsive-sm font-semibold mb-2" style="color:#525252;">상호 : 제로 인(Zer0 in)</p>
+            <p class="text-responsive-sm font-semibold" style="color:#525252;">주식회사 엔오엔에프컨설팅</p>
           </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mt-6 anim-target">
-            <div class="text-left anim-target">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mt-6">
+            <div class="text-left">
               <p class="text-responsive-xs"><span class="font-semibold" style="color:#808080;">사업 등록 번호 : 166-51-00938 | 대표 : 허예선</p></span>
               <p class="text-responsive-xs"><span class="font-semibold" style="color:#808080;">주소 : 서울특별시 마포구 와우산로 27길 74</p></span>
               <p class="text-responsive-xs"><span class="font-semibold" style="color:#808080;">대표 전화 : 02-1666-2188</p></span>
